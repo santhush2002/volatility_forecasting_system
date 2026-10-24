@@ -1,0 +1,8 @@
+model,residual,lag,LB stat,p-value,autocorrelation left? (5%)
+"ARIMA(1, 0, 1) on ln-vol",one-step ln-vol error,5,0.376185,0.99596,no
+"ARIMA(1, 0, 1) on ln-vol",one-step ln-vol error,10,5.65611,0.843281,no
+"ARIMA(1, 0, 1) on ln-vol",one-step ln-vol error,20,9.83041,0.971144,no
+"GARCH(1,1)-t",standardised,5,23.9769,0.000219342,yes
+"GARCH(1,1)-t",standardised,10,29.6038,0.000994212,yes
+"GARCH(1,1)-t",squared standardised,5,0.564145,0.989586,no
+"GARCH(1,1)-t",squared standardised,10,1.77064,0.997815,no

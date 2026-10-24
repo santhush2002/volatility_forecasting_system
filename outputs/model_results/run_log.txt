@@ -1,0 +1,63 @@
+[N] ARIMA order by AIC: (1, 0, 1)
+[N] GARCH variant by validation QLIKE: GARCH(1,1)-t
+[N] Ridge regression best params: {'alpha': np.float64(0.01)}
+[N] Random forest best params: {'max_depth': 6, 'min_samples_leaf': 5, 'max_features': np.float64(0.33)}
+[N] Gradient boosting best params: {'learning_rate': np.float64(0.05), 'n_estimators': 100, 'max_depth': 2}
+[X] ARIMA order by AIC: (1, 0, 1)
+[X] GARCH variant by validation QLIKE: GARCH(1,1)-t
+[X] Ridge regression best params: {'alpha': np.float64(0.01)}
+[X] Random forest best params: {'max_depth': 3, 'min_samples_leaf': 5, 'max_features': np.float64(1.0)}
+[X] Gradient boosting best params: {'learning_rate': np.float64(0.02), 'n_estimators': 300, 'max_depth': 2}
+
+=== Model comparison (COMB.N0000) ===
+                                  approach  train QLIKE  train RMSE  train MAE  val QLIKE  val RMSE  val MAE  test QLIKE  test RMSE  test MAE  test MZ R2  test mean forecast  val rank (QLIKE)  test rank (QLIKE)
+model                                                                                                                                                                                                             
+Naive (sigma_t)                   Baseline       1.8607      0.8865     0.6395     0.9888    0.9592   0.6949      4.5939     1.5116    0.6155      0.0230              0.9767                 6                  7
+Historical mean (22-day)          Baseline       0.7712      0.8195     0.6112     1.0464    1.0322   0.7428      3.1400     1.2063    0.5659      0.0036              0.9859                 7                  6
+ARIMA(1, 0, 1) on ln-vol       Traditional       0.6256      0.7303     0.5470     0.6589    0.8788   0.6198      1.9371     1.1465    0.5204      0.0355              1.0543                 2                  4
+GARCH(1,1)-t                   Traditional       0.6323      0.7544     0.5685     0.8163    1.0499   0.7201      1.6857     1.1493    0.5689      0.0430              1.1621                 5                  2
+Ridge regression          Machine learning       0.6183      0.7150     0.5284     0.5870    0.8685   0.6139      1.6584     1.1516    0.5659      0.0535              1.1758                 1                  1
+Random forest             Machine learning       0.3607      0.5774     0.4033     0.6766    0.8518   0.6037      2.1686     1.1515    0.5081      0.0306              1.0582                 4                  5
+Gradient boosting         Machine learning       0.3343      0.5459     0.4025     0.6627    0.8357   0.6142      1.8926     1.1525    0.5146      0.0342              1.0650                 3                  3
+
+Best on validation: Ridge regression | best on test: Ridge regression
+{
+  "arima_order": [
+    1,
+    0,
+    1
+  ],
+  "arima_name": "ARIMA(1, 0, 1) on ln-vol",
+  "garch_name": "GARCH(1,1)-t",
+  "ml_best_params": {
+    "Ridge regression": {
+      "alpha": 0.01
+    },
+    "Random forest": {
+      "max_depth": 6,
+      "min_samples_leaf": 5,
+      "max_features": 0.33
+    },
+    "Gradient boosting": {
+      "learning_rate": 0.05,
+      "n_estimators": 100,
+      "max_depth": 2
+    }
+  },
+  "best_val_model": "Ridge regression",
+  "best_test_model": "Ridge regression",
+  "weekday_kruskal": {
+    "H": 1.2027248590504076,
+    "p": 0.8776497840256365
+  },
+  "regime_threshold_vol_pct": 1.2278595846118694,
+  "garch_calibration_test": {
+    "calib_a": -0.3880872246063922,
+    "calib_b": 0.9627972276529718,
+    "smear": 1.1684120488837746
+  },
+  "X_best_val": "Ridge regression",
+  "X_best_test": "Random forest",
+  "X_arima": "ARIMA(1, 0, 1) on ln-vol",
+  "X_garch": "GARCH(1,1)-t"
+}

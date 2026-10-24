@@ -1,0 +1,4 @@
+date,type,note,raw_return_%,adjusted_return_%
+2024-04-01,dividend,FY2023 final dividend (DPS Rs 6.50; cash/scrip split not verified),-3.33,3.322
+2024-07-16,rights,1-for-5 rights issue at Rs 85 (ex-rights date inferred from data),-3.654,-0.495
+2025-04-01,dividend,"FY2024 dividend Rs 7.50 cash + Rs 2.00 scrip, XD 1 Apr 2025 (CSE)",-2.575,3.824

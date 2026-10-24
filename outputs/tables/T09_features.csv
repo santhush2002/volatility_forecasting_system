@@ -1,0 +1,15 @@
+feature,description
+lv_0,log Parkinson volatility on day t (most recent day)
+lv_1,log Parkinson volatility on day t-1
+lv_2,log Parkinson volatility on day t-2
+lv_w,log of the 5-day average Parkinson volatility (HAR 'weekly' term)
+lv_m,log of the 22-day average Parkinson volatility (HAR 'monthly' term)
+absret_0,"absolute adjusted return on day t (size of last price move, %)"
+absret_w,average absolute adjusted return over the last 5 days (%)
+ret_0,signed adjusted return on day t (captures the 'leverage effect')
+ret_m,"cumulative adjusted return over the last 22 days (momentum / trend, %)"
+log_volume_0,log of shares traded on day t (activity / liquidity)
+abn_volume,log(volume_t / 22-day average volume): unusual activity
+log_trades_0,log of number of trades on day t
+days_to_next,calendar days until the next trading day (known from the CSE holiday calendar)
+monday_next,1 if the forecast day is a Monday

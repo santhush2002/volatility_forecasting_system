@@ -1,0 +1,4 @@
+specification,train log-lik,train AIC,train BIC,val QLIKE
+"GARCH(1,1)-t",-493.897,997.795,1015.9,0.816295
+"EGARCH(1,1)-t",-492.481,996.963,1018.69,0.818379
+"GJR-GARCH(1,1)-t",-492.976,997.952,1019.67,0.897241

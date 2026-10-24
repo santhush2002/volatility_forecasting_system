@@ -1,0 +1,20 @@
+check,result
+Rows (trading days),478
+First date,2024-01-02
+Last date,2025-12-31
+Sorted chronologically,True
+Duplicate dates,0
+Missing HIGH,0
+Missing LOW,0
+Missing OPEN,0
+Missing CLOSE,0
+Zero / negative prices,0
+"Close outside [Low, High]",0
+High < Low,0
+Days with zero range (High = Low),0
+Gap of 1 calendar day,356
+Gap of 2-3 calendar days (weekends),100
+Gap of 4-5 calendar days (holidays),21
+Max gap (calendar days),5
+Share of days OPEN == CLOSE (2024),0.075
+Share of days OPEN == CLOSE (2025),1.0

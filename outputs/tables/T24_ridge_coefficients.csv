@@ -1,0 +1,15 @@
+feature,standardised coefficient,description
+lv_1,0.125032,log Parkinson volatility on day t-1
+log_trades_0,0.124908,log of number of trades on day t
+absret_0,0.100215,"absolute adjusted return on day t (size of last price move, %)"
+lv_0,0.0957967,log Parkinson volatility on day t (most recent day)
+log_volume_0,-0.0780313,log of shares traded on day t (activity / liquidity)
+days_to_next,0.070584,calendar days until the next trading day (known from the CSE holiday calendar)
+abn_volume,0.0692549,log(volume_t / 22-day average volume): unusual activity
+lv_2,0.0635011,log Parkinson volatility on day t-2
+ret_0,-0.0603255,signed adjusted return on day t (captures the 'leverage effect')
+ret_m,-0.0405387,"cumulative adjusted return over the last 22 days (momentum / trend, %)"
+absret_w,-0.0376746,average absolute adjusted return over the last 5 days (%)
+lv_w,-0.0315897,log of the 5-day average Parkinson volatility (HAR 'weekly' term)
+monday_next,-0.0133168,1 if the forecast day is a Monday
+lv_m,0.00444018,log of the 22-day average Parkinson volatility (HAR 'monthly' term)

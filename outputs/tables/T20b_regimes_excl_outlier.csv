@@ -1,0 +1,15 @@
+regime,days,model,approach,QLIKE,RMSE,mean actual,mean forecast,rank in regime (QLIKE)
+High-volatility,86,Naive (sigma_t),Baseline,0.851221,0.927103,1.29156,1.3573,6
+High-volatility,86,Historical mean (22-day),Baseline,0.969218,1.06845,1.29156,1.5,7
+High-volatility,86,"ARIMA(1, 0, 1) on ln-vol",Traditional,0.609854,0.877019,1.29156,1.34245,4
+High-volatility,86,"GARCH(1,1)-t",Traditional,0.753178,1.06684,1.29156,1.49603,5
+High-volatility,86,Ridge regression,Machine learning,0.56533,0.884954,1.29156,1.46534,2
+High-volatility,86,Random forest,Machine learning,0.594101,0.837795,1.29156,1.29574,3
+High-volatility,86,Gradient boosting,Machine learning,0.559346,0.816637,1.29156,1.35409,1
+Low-volatility,114,Naive (sigma_t),Baseline,1.07848,1.0942,0.927546,0.975232,7
+Low-volatility,114,Historical mean (22-day),Baseline,0.870307,0.627311,0.927546,0.905482,6
+Low-volatility,114,"ARIMA(1, 0, 1) on ln-vol",Traditional,0.558969,0.574325,0.927546,1.04899,2
+Low-volatility,114,"GARCH(1,1)-t",Traditional,0.626391,0.602566,0.927546,1.13536,5
+Low-volatility,114,Ridge regression,Machine learning,0.539626,0.577139,0.927546,1.13808,1
+Low-volatility,114,Random forest,Machine learning,0.586884,0.581992,0.927546,1.04587,3
+Low-volatility,114,Gradient boosting,Machine learning,0.606657,0.598561,0.927546,1.04682,4

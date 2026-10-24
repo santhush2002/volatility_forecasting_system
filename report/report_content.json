@@ -1,0 +1,3293 @@
+{
+ "title": "Forecasting Next-Day Volatility of COMB",
+ "blocks": [
+  {
+   "t": "title",
+   "text": "General Sir John Kotelawala Defence University",
+   "bold": true,
+   "size": 30,
+   "before": 1200
+  },
+  {
+   "t": "title",
+   "text": "BSc (Hons) Data Science and Business Analytics",
+   "size": 24
+  },
+  {
+   "t": "title",
+   "text": "Module CM3023 \u2013 [module title as stated in the module handbook]",
+   "size": 24
+  },
+  {
+   "t": "title",
+   "text": "Group Assignment: Real-World Financial Time Series Analytics",
+   "size": 24,
+   "before": 400
+  },
+  {
+   "t": "title",
+   "text": "Forecasting Next-Day Volatility of Commercial Bank of Ceylon PLC Shares:",
+   "bold": true,
+   "size": 34,
+   "color": "1F4E79",
+   "before": 600
+  },
+  {
+   "t": "title",
+   "text": "Traditional Time-Series Models versus Machine Learning on Colombo Stock Exchange Data, 2024\u20132025",
+   "bold": true,
+   "size": 28,
+   "color": "1F4E79"
+  },
+  {
+   "t": "title",
+   "text": "Group members",
+   "bold": true,
+   "size": 24,
+   "before": 800
+  },
+  {
+   "t": "title",
+   "text": "[Name 1]  \u2013  [Registration number 1]",
+   "size": 22
+  },
+  {
+   "t": "title",
+   "text": "[Name 2]  \u2013  [Registration number 2]",
+   "size": 22
+  },
+  {
+   "t": "title",
+   "text": "[Name 3]  \u2013  [Registration number 3]",
+   "size": 22
+  },
+  {
+   "t": "title",
+   "text": "[Name 4]  \u2013  [Registration number 4]",
+   "size": 22
+  },
+  {
+   "t": "title",
+   "text": "Submission date: [dd Month 2026]",
+   "size": 22,
+   "before": 500
+  },
+  {
+   "t": "pb"
+  },
+  {
+   "t": "h1",
+   "text": "Contents"
+  },
+  {
+   "t": "toc1",
+   "text": "1. Abstract"
+  },
+  {
+   "t": "toc1",
+   "text": "2. Introduction"
+  },
+  {
+   "t": "toc2",
+   "text": "2.1 Background and the real-world problem"
+  },
+  {
+   "t": "toc2",
+   "text": "2.2 Why volatility and not price or return?"
+  },
+  {
+   "t": "toc2",
+   "text": "2.3 Research question, aim and objectives"
+  },
+  {
+   "t": "toc2",
+   "text": "2.4 Scope and contribution"
+  },
+  {
+   "t": "toc1",
+   "text": "3. Dataset and Research Design"
+  },
+  {
+   "t": "toc2",
+   "text": "3.1 Source and contents"
+  },
+  {
+   "t": "toc2",
+   "text": "3.2 Data-quality checks"
+  },
+  {
+   "t": "toc2",
+   "text": "3.3 Preprocessing decisions"
+  },
+  {
+   "t": "toc2",
+   "text": "3.4 Target variable and forecast horizon"
+  },
+  {
+   "t": "toc2",
+   "text": "3.5 Chronological evaluation design"
+  },
+  {
+   "t": "toc1",
+   "text": "4. Exploratory Data Analysis"
+  },
+  {
+   "t": "toc2",
+   "text": "4.1 Descriptive statistics"
+  },
+  {
+   "t": "toc2",
+   "text": "4.2 Price, returns and volatility clustering"
+  },
+  {
+   "t": "toc2",
+   "text": "4.3 The forecasting target"
+  },
+  {
+   "t": "toc2",
+   "text": "4.4 Statistical tests"
+  },
+  {
+   "t": "toc1",
+   "text": "5. Methodology"
+  },
+  {
+   "t": "toc2",
+   "text": "5.1 Common forecasting protocol"
+  },
+  {
+   "t": "toc2",
+   "text": "5.2 Baselines (defined before modelling)"
+  },
+  {
+   "t": "toc2",
+   "text": "5.3 Traditional model 1 \u2013 ARIMA on ln-volatility"
+  },
+  {
+   "t": "toc2",
+   "text": "5.4 Traditional model 2 \u2013 GARCH family"
+  },
+  {
+   "t": "toc2",
+   "text": "5.5 Feature engineering for machine learning"
+  },
+  {
+   "t": "toc2",
+   "text": "5.6 Machine-learning models and hyper-parameter selection"
+  },
+  {
+   "t": "toc2",
+   "text": "5.7 Evaluation metrics"
+  },
+  {
+   "t": "toc2",
+   "text": "5.8 Leakage prevention (summary)"
+  },
+  {
+   "t": "toc2",
+   "text": "5.9 Additional investigation"
+  },
+  {
+   "t": "toc1",
+   "text": "6. Results"
+  },
+  {
+   "t": "toc2",
+   "text": "6.1 Validation and test performance"
+  },
+  {
+   "t": "toc2",
+   "text": "6.2 Are the differences statistically significant?"
+  },
+  {
+   "t": "toc2",
+   "text": "6.3 Forecast plots"
+  },
+  {
+   "t": "toc2",
+   "text": "6.4 Model diagnostics"
+  },
+  {
+   "t": "toc2",
+   "text": "6.5 Additional investigation: volatility regimes, stability and shocks"
+  },
+  {
+   "t": "toc2",
+   "text": "6.6 Sensitivity to the 1 December 2025 observation"
+  },
+  {
+   "t": "toc2",
+   "text": "6.7 What drives the ML forecasts? Feature importance"
+  },
+  {
+   "t": "toc2",
+   "text": "6.8 Robustness check: the non-voting share (COMB.X0000)"
+  },
+  {
+   "t": "toc1",
+   "text": "7. Discussion"
+  },
+  {
+   "t": "toc2",
+   "text": "7.1 Best-performing model and comparison with the baselines"
+  },
+  {
+   "t": "toc2",
+   "text": "7.2 Traditional versus machine learning \u2013 why so similar?"
+  },
+  {
+   "t": "toc2",
+   "text": "7.3 Regimes, shocks and the limits of forecasting"
+  },
+  {
+   "t": "toc2",
+   "text": "7.4 Financial and business implications"
+  },
+  {
+   "t": "toc2",
+   "text": "7.5 What cannot be concluded"
+  },
+  {
+   "t": "toc1",
+   "text": "8. Limitations and Future Improvements"
+  },
+  {
+   "t": "toc1",
+   "text": "9. Conclusion"
+  },
+  {
+   "t": "toc1",
+   "text": "References"
+  },
+  {
+   "t": "toc1",
+   "text": "Appendix A. Hyper-parameter search results (validation QLIKE)"
+  },
+  {
+   "t": "toc1",
+   "text": "Appendix B. Implementation and reproducibility"
+  },
+  {
+   "t": "toc1",
+   "text": "Appendix C. Group presentation preparation"
+  },
+  {
+   "t": "toc2",
+   "text": "C.1 Talking points (one per slide)"
+  },
+  {
+   "t": "toc2",
+   "text": "C.2 Likely lecturer questions and evidence-based answers"
+  },
+  {
+   "t": "toc2",
+   "text": "C.3 Suggested division of work (with deliberate overlap)"
+  },
+  {
+   "t": "pb"
+  },
+  {
+   "t": "h1",
+   "text": "1. Abstract"
+  },
+  {
+   "t": "p",
+   "text": "Volatility \u2013 how much a share price can move in a day \u2013 drives margin requirements, position limits, Value-at-Risk and the timing of large trades. This study asks whether the next trading day's volatility of Commercial Bank of Ceylon PLC voting shares (COMB.N0000), the largest listed private bank on the Colombo Stock Exchange (CSE), can be forecast more accurately with traditional time-series models or with machine-learning (ML) models. Using 478 daily CSE observations (2 January 2024 \u2013 31 December 2025), we measured daily volatility with the Parkinson high\u2013low range estimator after separating three securities mixed in the source file and correcting returns for two dividends and a 1-for-5 rights issue. Two baselines (yesterday's volatility; 22-day historical mean), two traditional models (ARIMA(1, 0, 1) on ln-vol; GARCH(1,1)-t with a scale calibration) and three ML models (Ridge regression, Random Forest, Gradient Boosting on 14 lagged features) were compared one day ahead with a strictly chronological split: training (254 days), validation (99) and an untouched test period (August\u2013December 2025, 102 days). On the test period every model beat both baselines, reducing QLIKE loss by 31\u201347% relative to the historical mean. Ridge regression ranked first on both validation (QLIKE 0.587) and test (QLIKE 1.658), but Diebold\u2013Mariano tests found no statistically significant difference between it and the other four models, and the ranking changed when one extreme day (1 December 2025, after Cyclone Ditwah) was excluded (ARIMA(1, 0, 1) on ln-vol first) and when the identical pipeline was applied to the non-voting share (Random forest first). The additional investigation of volatility regimes showed that the models' advantage over the baselines held in both calm and turbulent periods, but that the largest losses came from a shock arriving in a calm regime, which no model anticipated. We conclude that volatility of this stock is genuinely forecastable from its own recent history and trading activity, that the information is largely linear and short-memory (so flexible ML adds little over a well-specified ARIMA on log-volatility), and that the choice between model families matters far less than choosing a sensible volatility measure and avoiding naive baselines."
+  },
+  {
+   "t": "h1",
+   "text": "2. Introduction"
+  },
+  {
+   "t": "h2",
+   "text": "2.1 Background and the real-world problem"
+  },
+  {
+   "t": "p",
+   "text": "Commercial Bank of Ceylon PLC (ticker COMB) is one of the most heavily traded stocks on the CSE and a component of the S&P Sri Lanka 20 index. Between 2024 and 2025 its share price roughly doubled as Sri Lanka's economy recovered from the 2022 crisis, but the path was not smooth: a Rs 22.5 billion rights issue was announced in May 2024, US reciprocal tariffs triggered a market-wide circuit breaker in April 2025, and Cyclone Ditwah struck the country at the end of November 2025."
+  },
+  {
+   "t": "p",
+   "text": "For a broker, fund manager, bank treasury or regulator, the most decision-relevant quantity is often not tomorrow's price direction \u2013 which is very hard to predict \u2013 but tomorrow's *risk*. A good one-day volatility forecast is the input to daily Value-at-Risk, to margin and collateral haircuts, to stop-loss distances and position sizing, and to the scheduling of large block trades in a market where liquidity is thin. Over-predicting risk ties up capital unnecessarily; under-predicting it exposes the institution to losses it was not prepared for."
+  },
+  {
+   "t": "h2",
+   "text": "2.2 Why volatility and not price or return?"
+  },
+  {
+   "t": "p",
+   "text": "We initially considered forecasting prices or next-day returns. The data argued against both. Log prices are non-stationary (ADF p = 0.946; KPSS rejects stationarity), so a price forecast is dominated by the random-walk component. Returns are close to unpredictable in magnitude and, even where weak autocorrelation exists, a return forecast mostly measures noise. Daily volatility, in contrast, is strongly persistent: the Ljung\u2013Box Q(10) statistic for log range volatility is 130.6 (p < 0.001) in the training data. A well-posed forecasting problem with a clear financial use is therefore volatility."
+  },
+  {
+   "t": "h2",
+   "text": "2.3 Research question, aim and objectives"
+  },
+  {
+   "t": "box",
+   "text": "**Research question.** How accurately can the next trading day's volatility of COMB voting shares be forecast by traditional time-series models (ARIMA on log-volatility and GARCH) compared with machine-learning models (Ridge regression, Random Forest, Gradient Boosting), relative to simple baselines, when evaluated one day ahead on an untouched final period (August\u2013December 2025) \u2013 and do the differences persist across calm and turbulent market regimes?"
+  },
+  {
+   "t": "p",
+   "text": "**Aim.** To produce a fair, leakage-free comparison of the two modelling traditions for daily equity risk forecasting on a frontier-market stock, and to explain \u2013 not only report \u2013 why they perform as they do."
+  },
+  {
+   "t": "p",
+   "text": "**Objectives.**"
+  },
+  {
+   "t": "numbers",
+   "items": [
+    "Build a clean, corporate-action-adjusted daily dataset for COMB and a defensible daily volatility measure.",
+    "Characterise the statistical properties of returns and volatility (stationarity, autocorrelation, fat tails, clustering).",
+    "Fit two baselines, two traditional and three ML models under one common forecasting protocol and select all specifications without using the test period.",
+    "Compare out-of-sample accuracy with QLIKE, RMSE and MAE and test the significance of differences (Diebold\u2013Mariano).",
+    "Investigate whether performance differs between low- and high-volatility regimes and around documented market shocks."
+   ],
+   "ref": "num"
+  },
+  {
+   "t": "p",
+   "text": "**Hypotheses.** H1: all fitted models beat the naive and historical-mean baselines. H2: ML models do *not* necessarily outperform traditional models; with about 250 training days we expected flexible models to overfit. H3: relative performance differs between calm and turbulent regimes."
+  },
+  {
+   "t": "h2",
+   "text": "2.4 Scope and contribution"
+  },
+  {
+   "t": "p",
+   "text": "The study covers one stock, two years and a one-day horizon. Its contribution is methodological honesty on a small, real frontier-market dataset: it shows how data problems specific to CSE exports (mixed share classes, unadjusted prices, an unreliable open price) change the analysis, and it reports a result that is less dramatic but more useful than 'machine learning wins'."
+  },
+  {
+   "t": "h1",
+   "text": "3. Dataset and Research Design"
+  },
+  {
+   "t": "h2",
+   "text": "3.1 Source and contents"
+  },
+  {
+   "t": "p",
+   "text": "The dataset is the file *COMB_Stock_Data_2024_2025.xlsx* supplied by the group. Its column layout (company ID, main type, sub type, short name, trading date, high, low, close, open, trade volume, share volume, turnover) matches the CSE company trade-summary format, so it is consistent with daily data downloaded from the Colombo Stock Exchange (www.cse.lk). We have not independently re-downloaded the series; the price path, the 7 April 2025 sell-off and the rights-issue reaction on 29 May 2024 agree with contemporaneous press reports (Daily Mirror, 2024; 2025)."
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 1. Securities found in the raw file (969 rows, 12 columns)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Main type",
+    "Sub type",
+    "Rows",
+    "First date",
+    "Last date",
+    "Meaning"
+   ],
+   "rows": [
+    [
+     "N",
+     "0",
+     "478",
+     "2024-01-02",
+     "2025-12-31",
+     "Ordinary voting share (COMB.N0000)"
+    ],
+    [
+     "R",
+     "0",
+     "6",
+     "2024-07-30",
+     "2024-08-06",
+     "Rights entitlement (traded 30 Jul-6 Aug 2024)"
+    ],
+    [
+     "R",
+     "1",
+     "6",
+     "2024-07-30",
+     "2024-08-06",
+     "Rights entitlement (traded 30 Jul-6 Aug 2024)"
+    ],
+    [
+     "X",
+     "0",
+     "478",
+     "2024-01-02",
+     "2025-12-31",
+     "Ordinary non-voting share (COMB.X0000)"
+    ]
+   ],
+   "widths": [
+    1,
+    1,
+    1,
+    1.5,
+    1.5,
+    4
+   ],
+   "small": false,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "**What we did and why.** The file mixes three different securities. Voting (N) and non-voting (X) shares have different prices, liquidity and investor bases, and rights entitlements (R) are short-lived derivatives worth a few rupees. Pooling them would create a meaningless series. The voting share is the main analysis because it is far more liquid (median daily turnover about six times that of X); the non-voting share is used as a robustness check; rights are excluded."
+  },
+  {
+   "t": "h2",
+   "text": "3.2 Data-quality checks"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 2. Data-quality summary, COMB.N0000 (before cleaning)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Check",
+    "Result"
+   ],
+   "rows": [
+    [
+     "Rows (trading days)",
+     "478"
+    ],
+    [
+     "First date",
+     "2024-01-02"
+    ],
+    [
+     "Last date",
+     "2025-12-31"
+    ],
+    [
+     "Sorted chronologically",
+     "True"
+    ],
+    [
+     "Duplicate dates",
+     "0"
+    ],
+    [
+     "Missing HIGH",
+     "0"
+    ],
+    [
+     "Missing LOW",
+     "4"
+    ],
+    [
+     "Missing OPEN",
+     "2"
+    ],
+    [
+     "Missing CLOSE",
+     "0"
+    ],
+    [
+     "Zero / negative prices",
+     "0"
+    ],
+    [
+     "Close outside [Low, High]",
+     "0"
+    ],
+    [
+     "High < Low",
+     "0"
+    ],
+    [
+     "Days with zero range (High = Low)",
+     "0"
+    ],
+    [
+     "Gap of 1 calendar day",
+     "356"
+    ],
+    [
+     "Gap of 2-3 calendar days (weekends)",
+     "100"
+    ],
+    [
+     "Gap of 4-5 calendar days (holidays)",
+     "21"
+    ],
+    [
+     "Max gap (calendar days)",
+     "5"
+    ],
+    [
+     "Share of days OPEN == CLOSE (2024)",
+     "0.108"
+    ],
+    [
+     "Share of days OPEN == CLOSE (2025)",
+     "1.0"
+    ]
+   ],
+   "widths": [
+    3,
+    2
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "Three findings shaped the methodology. First, the **open price equals the close on every trading day of 2025** (55% of all days), whereas this happens on only about 11% of 2024 days; in 2025 the field is evidently not a genuine opening price in this export. We therefore never use the open price \u2013 which rules out Garman\u2013Klass and similar estimators that need it. Second, four LOW values are missing (all in 2024). Third, there are no duplicates, no impossible prices (close outside the high\u2013low range) and no zero-range days; gaps of 2\u20135 calendar days are weekends and CSE holidays, so the series is a complete trading-day calendar."
+  },
+  {
+   "t": "h2",
+   "text": "3.3 Preprocessing decisions"
+  },
+  {
+   "t": "bullets",
+   "items": [
+    "**Missing LOW (4 days):** replaced with min(open, close) of the same day. This uses no future information, but it can only understate the day's range; the days are flagged and all fall in the training period.",
+    "**Outliers kept:** large moves such as the April 2025 tariff sell-off and 1 December 2025 are real market events; deleting them would make the models look better than they are. Their influence is analysed explicitly (Section 6.6).",
+    "**Corporate actions:** unadjusted closing prices fall mechanically on ex-dividend (XD) and ex-rights (XR) days. Close-to-close returns on those days were corrected (Table 3). The XR date of 16 July 2024 is inferred from the data: the opening price that day (Rs 101.00) almost exactly equals the theoretical ex-rights price (5 \u00d7 104.50 + 85)/6 = Rs 101.25, and the rights entitlements traded from 30 July to 6 August 2024.",
+    "**Original data kept:** the raw Excel file is stored unchanged in data/original; cleaned series are written to data/processed."
+   ]
+  },
+  {
+   "t": "eq",
+   "text": "Ex-dividend day:  r_t = ln[(C_t + D) / C_(t\u22121)]"
+  },
+  {
+   "t": "eq",
+   "text": "Ex-rights day:  r_t = ln(C_t / TERP),   TERP = (C_(t\u22121) + k\u00b7S) / (1 + k),   k = 1/5"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 3. Corporate-action adjustments (voting share)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Date",
+    "Event",
+    "Raw return (%)",
+    "Adjusted return (%)",
+    "Note"
+   ],
+   "rows": [
+    [
+     "2024-04-01",
+     "dividend",
+     "-3.33",
+     "3.32",
+     "FY2023 final dividend (DPS Rs 6.50; cash/scrip split not verified)"
+    ],
+    [
+     "2024-07-16",
+     "rights",
+     "-3.65",
+     "-0.49",
+     "1-for-5 rights issue at Rs 85 (ex-rights date inferred from data)"
+    ],
+    [
+     "2025-04-01",
+     "dividend",
+     "-2.58",
+     "3.82",
+     "FY2024 dividend Rs 7.50 cash + Rs 2.00 scrip, XD 1 Apr 2025 (CSE)"
+    ]
+   ],
+   "widths": [
+    1.3,
+    1,
+    1.1,
+    1.2,
+    4.5
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "The FY2024 dividend (Rs 7.50 cash + Rs 2.00 scrip, XD 1 April 2025) is confirmed by the CSE announcement. The FY2023 dividend amount (Rs 6.50 per share) is taken from a broker report and its cash/scrip split was not verified; because it affects only one return in the training sample, the impact on the results is negligible."
+  },
+  {
+   "t": "h2",
+   "text": "3.4 Target variable and forecast horizon"
+  },
+  {
+   "t": "p",
+   "text": "The target is the **Parkinson (1980) range-based daily volatility**, in percent:"
+  },
+  {
+   "t": "eq",
+   "text": "\u03c3_t = 100 \u00d7 |ln(H_t / L_t)| / \u221a(4 ln 2)"
+  },
+  {
+   "t": "p",
+   "text": "We chose it over squared returns for three reasons. (i) It uses the whole intraday trading range, so it is roughly five times more statistically efficient than a squared close-to-close return as a measure of daily variance. (ii) It is unaffected by dividends and rights issues, which move the overnight price, not the intraday range. (iii) It needs only high and low prices, which are reliable in this dataset, unlike the open. The limitation is that it ignores overnight gaps and is affected by the CSE tick size (Rs 0.25 at these price levels), which makes very quiet days look discrete. **Horizon:** one trading day ahead. Each forecast for day t+1 is made after the close of day t, using only data up to day t \u2013 a realistic setting for a risk desk that sets limits for the next session."
+  },
+  {
+   "t": "h2",
+   "text": "3.5 Chronological evaluation design"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 4. Chronological split (dates are forecast-target dates)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Set",
+    "First date",
+    "Last date",
+    "Days",
+    "Share",
+    "Used for"
+   ],
+   "rows": [
+    [
+     "Training",
+     "2024-02-07",
+     "2025-02-28",
+     "254",
+     "55.8%",
+     "estimating parameters"
+    ],
+    [
+     "Validation",
+     "2025-03-03",
+     "2025-07-31",
+     "99",
+     "21.8%",
+     "choosing orders / hyper-parameters"
+    ],
+    [
+     "Test",
+     "2025-08-01",
+     "2025-12-31",
+     "102",
+     "22.4%",
+     "final, untouched comparison"
+    ]
+   ],
+   "widths": [
+    1.2,
+    1.3,
+    1.3,
+    0.8,
+    0.8,
+    3
+   ],
+   "small": false,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "The first 23 trading days are consumed by 22-day rolling features, so the modelling sample has 455 forecast days. A 70/15/15 split would leave a test period of only about 68 days; we used calendar boundaries giving roughly 56/22/22% so that the validation period contains the April 2025 shock and the test period spans five full months. The protocol, applied identically to every model, is:"
+  },
+  {
+   "t": "numbers",
+   "items": [
+    "Estimate parameters on the training set only.",
+    "Forecast every validation day one step ahead with those fixed parameters; choose orders and hyper-parameters by validation QLIKE.",
+    "Re-estimate each chosen specification once on training + validation data.",
+    "Forecast each test day one step ahead with fixed parameters. New observations are fed in as they occur (as a risk desk would), but nothing is re-tuned and the test period is never used for any decision."
+   ],
+   "ref": "num2"
+  },
+  {
+   "t": "p",
+   "text": "Training performance is in-sample fit; validation performance guided choices and is therefore slightly optimistic; test performance is the only unbiased estimate of real forecasting ability and is the basis of our conclusions."
+  },
+  {
+   "t": "h1",
+   "text": "4. Exploratory Data Analysis"
+  },
+  {
+   "t": "h2",
+   "text": "4.1 Descriptive statistics"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 5. Descriptive statistics, COMB.N0000 (full sample)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Variable",
+    "n",
+    "Mean",
+    "Std",
+    "Min",
+    "Median",
+    "Max",
+    "Skew",
+    "Ex. kurt."
+   ],
+   "rows": [
+    [
+     "Close price (Rs.)",
+     "478",
+     "136.287",
+     "39.136",
+     "79.800",
+     "136.375",
+     "216.750",
+     "0.48",
+     "-0.99"
+    ],
+    [
+     "Adjusted daily log return (%)",
+     "477",
+     "0.187",
+     "1.592",
+     "-8.973",
+     "0.000",
+     "8.978",
+     "-0.05",
+     "6.56"
+    ],
+    [
+     "Parkinson daily volatility (%)",
+     "478",
+     "1.211",
+     "0.936",
+     "0.140",
+     "0.938",
+     "11.243",
+     "3.85",
+     "29.62"
+    ],
+    [
+     "Share volume (No.)",
+     "478",
+     "936,696.000",
+     "2,028,870.000",
+     "4,764.000",
+     "440,246.000",
+     "29,080,800.000",
+     "9.65",
+     "119.76"
+    ]
+   ],
+   "widths": [
+    3,
+    0.7,
+    1.2,
+    1.2,
+    1,
+    1.2,
+    1.3,
+    0.8,
+    0.9
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 6. Return and volatility by period (price change is unadjusted)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Period",
+    "Days",
+    "Price change (%)",
+    "Mean ret. (%/day)",
+    "Std ret. (%/day)",
+    "Mean vol (%)",
+    "Median vol (%)",
+    "Annualised vol (%)"
+   ],
+   "rows": [
+    [
+     "2024",
+     "240",
+     "49.4",
+     "0.209",
+     "1.591",
+     "1.268",
+     "1.047",
+     "24.7"
+    ],
+    [
+     "2025",
+     "238",
+     "37.5",
+     "0.164",
+     "1.596",
+     "1.153",
+     "0.847",
+     "24.8"
+    ],
+    [
+     "Training period",
+     "277",
+     "53.3",
+     "0.190",
+     "1.583",
+     "1.266",
+     "1.040",
+     "24.6"
+    ],
+    [
+     "Validation period",
+     "99",
+     "16.7",
+     "0.200",
+     "1.933",
+     "1.292",
+     "0.903",
+     "30.1"
+    ],
+    [
+     "Test period",
+     "102",
+     "15.4",
+     "0.164",
+     "1.225",
+     "0.982",
+     "0.724",
+     "19.1"
+    ]
+   ],
+   "widths": [
+    2,
+    0.7,
+    1.1,
+    1.1,
+    1.1,
+    1,
+    1,
+    1.1
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "Average daily range volatility is 1.21% with a median of 0.94%, and the distribution is highly right-skewed (skewness 3.9). Importantly for the comparison, **the test period was calmer than the training period** (median volatility 0.72% versus 1.04%), apart from one extreme day. Models estimated on a more volatile history will tend to over-predict in a calm period \u2013 something the QLIKE loss penalises less than under-prediction."
+  },
+  {
+   "t": "h2",
+   "text": "4.2 Price, returns and volatility clustering"
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig01_price_history.png",
+   "width": 620,
+   "alt": "Figure 1. Closing prices of the voting and non-voting shares with ex-dividend (XD) and ex-rights (XR) dates and the training (blue), validation (orange) and test (green) periods. Interpretation: a strong upward trend means price levels are non-stationary; the corporate-action dates are where unadjusted prices drop mechanically."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 1. Closing prices of the voting and non-voting shares with ex-dividend (XD) and ex-rights (XR) dates and the training (blue), validation (orange) and test (green) periods. Interpretation: a strong upward trend means price levels are non-stationary; the corporate-action dates are where unadjusted prices drop mechanically."
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig02_returns_rolling.png",
+   "width": 620,
+   "alt": "Figure 2. Adjusted daily returns (top) and rolling 22-day mean and standard deviation (bottom). Interpretation: the rolling standard deviation varies between roughly 0.6% and 3.6%, and large moves come in bursts (May 2024, April 2025) \u2013 the visual signature of time-varying volatility."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 2. Adjusted daily returns (top) and rolling 22-day mean and standard deviation (bottom). Interpretation: the rolling standard deviation varies between roughly 0.6% and 3.6%, and large moves come in bursts (May 2024, April 2025) \u2013 the visual signature of time-varying volatility."
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig03_return_distribution.png",
+   "width": 600,
+   "alt": "Figure 3. Distribution and normal Q-Q plot of daily returns. Interpretation: far more mass in the tails than a normal distribution (excess kurtosis 6.6); this motivates the Student-t distribution in the GARCH models."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 3. Distribution and normal Q-Q plot of daily returns. Interpretation: far more mass in the tails than a normal distribution (excess kurtosis 6.6); this motivates the Student-t distribution in the GARCH models."
+  },
+  {
+   "t": "h2",
+   "text": "4.3 The forecasting target"
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig04_target_series.png",
+   "width": 620,
+   "alt": "Figure 4. Daily Parkinson volatility with its 22-day mean (top) and on the log scale (bottom). Interpretation: volatility moves in persistent waves around a stable level; ln-volatility looks stationary. The spike on 1 December 2025 (intraday low Rs 170 against a close of Rs 200.25) is the largest value in the sample."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 4. Daily Parkinson volatility with its 22-day mean (top) and on the log scale (bottom). Interpretation: volatility moves in persistent waves around a stable level; ln-volatility looks stationary. The spike on 1 December 2025 (intraday low Rs 170 against a close of Rs 200.25) is the largest value in the sample."
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig05_target_distribution.png",
+   "width": 620,
+   "alt": "Figure 5. Distributions of volatility and ln-volatility, and volatility by weekday (training). Interpretation: the log transform makes the target close to symmetric; there is no weekday pattern (Kruskal\u2013Wallis H = 1.20, p = 0.88), so a seasonal model is not justified."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 5. Distributions of volatility and ln-volatility, and volatility by weekday (training). Interpretation: the log transform makes the target close to symmetric; there is no weekday pattern (Kruskal\u2013Wallis H = 1.20, p = 0.88), so a seasonal model is not justified."
+  },
+  {
+   "t": "p",
+   "text": "The 1 December 2025 observation deserves comment. It was the first trading session after Cyclone Ditwah, and the CSE was under pressure in late 2025 (The Morning, 2025). However, the voting share's low of Rs 170 (\u221218% intraday, closing only \u22123.7%) is far deeper than the non-voting share's low that day (\u22124.2%). It may reflect one or a few trades at extreme prices. We cannot verify this from the data, so we keep the value and report all key results with and without it."
+  },
+  {
+   "t": "h2",
+   "text": "4.4 Statistical tests"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 7. Stationarity tests on the training sample (ADF H0: unit root; KPSS H0: stationary)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Series",
+    "ADF stat",
+    "ADF p",
+    "KPSS stat",
+    "KPSS p",
+    "Conclusion (5%)"
+   ],
+   "rows": [
+    [
+     "log close price",
+     "-0.13",
+     "0.946",
+     "1.508",
+     "\u22640.01",
+     "non-stationary (both tests agree)"
+    ],
+    [
+     "adjusted log return",
+     "-13.11",
+     "<0.001",
+     "0.165",
+     "\u22650.10",
+     "stationary (both tests agree)"
+    ],
+    [
+     "log Parkinson volatility",
+     "-6.22",
+     "<0.001",
+     "0.217",
+     "\u22650.10",
+     "stationary (both tests agree)"
+    ]
+   ],
+   "widths": [
+    2.2,
+    1,
+    0.9,
+    1,
+    0.9,
+    2.6
+   ],
+   "small": false,
+   "highlight": []
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 8. Dependence and distribution tests on the training sample"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Test",
+    "Series",
+    "Statistic",
+    "p-value",
+    "Reject H0 at 5%?"
+   ],
+   "rows": [
+    [
+     "Ljung-Box Q(5)",
+     "adjusted return",
+     "24.77",
+     "<0.001",
+     "yes"
+    ],
+    [
+     "Ljung-Box Q(10)",
+     "adjusted return",
+     "30.11",
+     "<0.001",
+     "yes"
+    ],
+    [
+     "Ljung-Box Q(5)",
+     "squared return",
+     "9.14",
+     "0.104",
+     "no"
+    ],
+    [
+     "Ljung-Box Q(10)",
+     "squared return",
+     "11.04",
+     "0.355",
+     "no"
+    ],
+    [
+     "Ljung-Box Q(5)",
+     "log Parkinson vol",
+     "102.89",
+     "<0.001",
+     "yes"
+    ],
+    [
+     "Ljung-Box Q(10)",
+     "log Parkinson vol",
+     "130.63",
+     "<0.001",
+     "yes"
+    ],
+    [
+     "ARCH-LM (5 lags)",
+     "adjusted return",
+     "5.44",
+     "0.364",
+     "no"
+    ],
+    [
+     "Jarque-Bera",
+     "adjusted return",
+     "202.00",
+     "<0.001",
+     "yes"
+    ]
+   ],
+   "widths": [
+    1.8,
+    1.8,
+    1,
+    1,
+    1.2
+   ],
+   "small": false,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "KPSS p-values are reported by statsmodels only within 0.01\u20130.10, hence the inequality signs. The tests lead to four modelling decisions:"
+  },
+  {
+   "t": "bullets",
+   "items": [
+    "**Do not model prices.** The log price has a unit root.",
+    "**Model ln-volatility without differencing (d = 0).** ADF and KPSS agree that it is stationary.",
+    "**Volatility is forecastable.** Ln-volatility has very strong autocorrelation (Ljung\u2013Box Q(10) p < 0.001; Figure 6c\u2013d: the ACF decays slowly and the PACF has two to three significant lags, suggestive of an ARMA(1,1)-type process).",
+    "**A warning for GARCH.** Squared returns show no significant autocorrelation (Q(10) p = 0.355) and the ARCH-LM test is not significant (p = 0.364). Volatility clustering is present in the range measure but invisible in squared daily returns, which are a very noisy volatility proxy. Because GARCH learns only from squared returns, we expected it to estimate the dynamics imprecisely."
+   ]
+  },
+  {
+   "t": "p",
+   "text": "Returns themselves are autocorrelated (Ljung\u2013Box Q(5) p = <0.001), a common feature of thinly traded frontier markets (stale prices and gradual price adjustment). This is noted but is not the object of forecasting here."
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig06_acf_pacf.png",
+   "width": 620,
+   "alt": "Figure 6. ACF of returns and squared returns, and ACF/PACF of ln-volatility (training sample, 95% bands). Interpretation: strong persistence in ln-volatility (c, d) contrasts with almost none in squared returns (b)."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 6. ACF of returns and squared returns, and ACF/PACF of ln-volatility (training sample, 95% bands). Interpretation: strong persistence in ln-volatility (c, d) contrasts with almost none in squared returns (b)."
+  },
+  {
+   "t": "h1",
+   "text": "5. Methodology"
+  },
+  {
+   "t": "h2",
+   "text": "5.1 Common forecasting protocol"
+  },
+  {
+   "t": "p",
+   "text": "All seven methods forecast the same quantity (\u03c3 for day t+1, in percent), from the same origin (close of day t), for the same validation and test dates. Models fitted on ln \u03c3 are converted back with Duan's (1983) smearing factor estimated on the fitting sample, because exp(E[ln \u03c3]) systematically under-estimates E[\u03c3]."
+  },
+  {
+   "t": "h2",
+   "text": "5.2 Baselines (defined before modelling)"
+  },
+  {
+   "t": "bullets",
+   "items": [
+    "**Naive (random walk):** \u03c3\u0302_(t+1) = \u03c3_t. The simplest possible forecast.",
+    "**22-day historical mean:** \u03c3\u0302_(t+1) = mean(\u03c3_(t\u221221), \u2026, \u03c3_t). The 'historical volatility' that practitioners commonly use; it is our primary benchmark because it is what a desk without a model would actually use."
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "5.3 Traditional model 1 \u2013 ARIMA on ln-volatility"
+  },
+  {
+   "t": "p",
+   "text": "Because ln \u03c3 is stationary and its ACF/PACF suggest a low-order ARMA, we fitted ARIMA(p, 0, q) with a constant for all p, q \u2264 3 on the training data and selected by AIC. The chosen model is **ARIMA(1, 0, 1) on ln-vol** (AIC 447.1; the next best, ARIMA(1,0,2), is 1.1 points worse and BIC also favours (1,0,1)). ARIMA assumes linear dynamics and constant error variance in ln \u03c3; it cannot use volume or calendar information. All fits converged without warnings. Prediction intervals are formed on the log scale and exponentiated; because exp is monotonic, the quantiles transform exactly."
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 9. ARIMA(1,0,1) parameters, re-estimated on training + validation data"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Parameter",
+    "Estimate",
+    "Std. error",
+    "p-value"
+   ],
+   "rows": [
+    [
+     "const",
+     "0.0500",
+     "0.0686",
+     "0.466"
+    ],
+    [
+     "ar.L1",
+     "0.7746",
+     "0.0681",
+     "<0.001"
+    ],
+    [
+     "ma.L1",
+     "-0.4438",
+     "0.0953",
+     "<0.001"
+    ],
+    [
+     "sigma2",
+     "0.2893",
+     "0.0217",
+     "<0.001"
+    ]
+   ],
+   "widths": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "small": false,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "The AR coefficient (0.77) shows that volatility shocks persist; the negative MA term (-0.44) means part of each day's surprise is noise that does not carry over \u2013 exactly what one expects when the 'true' volatility is observed with error through a daily range."
+  },
+  {
+   "t": "h2",
+   "text": "5.4 Traditional model 2 \u2013 GARCH family"
+  },
+  {
+   "t": "p",
+   "text": "GARCH models are the standard econometric tool for volatility clustering (Engle, 1982; Bollerslev, 1986). We estimated three variants with a constant mean and Student-t errors on the corporate-action-adjusted returns: GARCH(1,1), GJR-GARCH(1,1) (asymmetric response to negative returns; Glosten et al., 1993) and EGARCH(1,1) (Nelson, 1991). The variant with the lowest validation QLIKE was kept."
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 10. GARCH variant selection (parameters estimated on training data)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Specification",
+    "Train log-lik.",
+    "Train AIC",
+    "Train BIC",
+    "Validation QLIKE"
+   ],
+   "rows": [
+    [
+     "GARCH(1,1)-t",
+     "-493.9",
+     "997.8",
+     "1,015.9",
+     "0.8163"
+    ],
+    [
+     "EGARCH(1,1)-t",
+     "-492.5",
+     "997.0",
+     "1,018.7",
+     "0.8184"
+    ],
+    [
+     "GJR-GARCH(1,1)-t",
+     "-493.0",
+     "998.0",
+     "1,019.7",
+     "0.8972"
+    ]
+   ],
+   "widths": [
+    2,
+    1,
+    1,
+    1,
+    1.2
+   ],
+   "small": false,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "GARCH conditional volatility measures close-to-close variability, which is not on the same scale as the intraday range. To make the comparison fair we mapped it onto the target with a regression on logs, ln \u03c3_t = a + b\u00b7ln h_t^\u00bd, estimated **on the fitting sample only** (test fit: a = -0.388, b = 0.963). The near-unit slope shows the two measures move proportionally."
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 11. GARCH(1,1)-t parameters, re-estimated on training + validation returns"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Parameter",
+    "Estimate",
+    "Std. error",
+    "p-value"
+   ],
+   "rows": [
+    [
+     "mu",
+     "0.0986",
+     "0.0740",
+     "0.183"
+    ],
+    [
+     "omega",
+     "0.9184",
+     "0.5394",
+     "0.089"
+    ],
+    [
+     "alpha[1]",
+     "0.3210",
+     "0.1492",
+     "0.031"
+    ],
+    [
+     "beta[1]",
+     "0.4073",
+     "0.2239",
+     "0.069"
+    ],
+    [
+     "nu",
+     "3.7626",
+     "0.8788",
+     "<0.001"
+    ],
+    [
+     "persistence (alpha+beta+gamma/2)",
+     "0.7283",
+     "\u2013",
+     "\u2013"
+    ]
+   ],
+   "widths": [
+    2.4,
+    1,
+    1,
+    1
+   ],
+   "small": false,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "The ARCH coefficient \u03b1 = 0.32 is significant (p = 0.031) but \u03b2 = 0.41 is only marginally significant (p = 0.069) and persistence is a modest 0.73, far below the 0.95\u20130.99 typical of liquid markets. The tail parameter \u03bd = 3.8 confirms very fat tails. This is consistent with the weak ARCH evidence in Section 4.4."
+  },
+  {
+   "t": "h2",
+   "text": "5.5 Feature engineering for machine learning"
+  },
+  {
+   "t": "p",
+   "text": "Fourteen predictors were built, each from information available at the close of day t (implemented by computing the quantity on day t and shifting it one row forward). Rolling windows look backward only. The only information about day t+1 itself is calendar information published in advance by the CSE (number of days until the next session and whether it is a Monday)."
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 12. Features used by the ML models"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Feature",
+    "Meaning and expected role"
+   ],
+   "rows": [
+    [
+     "lv_0",
+     "log Parkinson volatility on day t (most recent day)"
+    ],
+    [
+     "lv_1",
+     "log Parkinson volatility on day t-1"
+    ],
+    [
+     "lv_2",
+     "log Parkinson volatility on day t-2"
+    ],
+    [
+     "lv_w",
+     "log of the 5-day average Parkinson volatility (HAR 'weekly' term)"
+    ],
+    [
+     "lv_m",
+     "log of the 22-day average Parkinson volatility (HAR 'monthly' term)"
+    ],
+    [
+     "absret_0",
+     "absolute adjusted return on day t (size of last price move, %)"
+    ],
+    [
+     "absret_w",
+     "average absolute adjusted return over the last 5 days (%)"
+    ],
+    [
+     "ret_0",
+     "signed adjusted return on day t (captures the 'leverage effect')"
+    ],
+    [
+     "ret_m",
+     "cumulative adjusted return over the last 22 days (momentum / trend, %)"
+    ],
+    [
+     "log_volume_0",
+     "log of shares traded on day t (activity / liquidity)"
+    ],
+    [
+     "abn_volume",
+     "log(volume_t / 22-day average volume): unusual activity"
+    ],
+    [
+     "log_trades_0",
+     "log of number of trades on day t"
+    ],
+    [
+     "days_to_next",
+     "calendar days until the next trading day (known from the CSE holiday calendar)"
+    ],
+    [
+     "monday_next",
+     "1 if the forecast day is a Monday"
+    ]
+   ],
+   "widths": [
+    1.3,
+    5
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "The first five features form a 'HAR' structure (Corsi, 2009): daily, weekly and monthly volatility components. Absolute and signed returns capture the size and direction of the last move (negative returns often raise future volatility). Volume and number of trades proxy information arrival. All learned preprocessing (the Ridge scaler) is fitted inside a scikit-learn Pipeline on training rows only."
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig07_feature_correlation.png",
+   "width": 520,
+   "alt": "Figure 7. Correlations among features and the next-day ln-volatility target (training sample). Interpretation: recent daily and weekly volatility, recent absolute returns and the number of trades are most correlated with the target (about 0.35\u20130.39); the lagged volatility features are highly correlated with each other, which motivates regularisation and explains why individual coefficients must be interpreted cautiously."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 7. Correlations among features and the next-day ln-volatility target (training sample). Interpretation: recent daily and weekly volatility, recent absolute returns and the number of trades are most correlated with the target (about 0.35\u20130.39); the lagged volatility features are highly correlated with each other, which motivates regularisation and explains why individual coefficients must be interpreted cautiously."
+  },
+  {
+   "t": "h2",
+   "text": "5.6 Machine-learning models and hyper-parameter selection"
+  },
+  {
+   "t": "bullets",
+   "items": [
+    "**Ridge regression** (Hoerl and Kennard, 1970): a linear model with an L2 penalty, appropriate because the features are correlated and the sample is small. Grid: \u03b1 \u2208 {0.01, 0.1, 1, 10, 30, 100, 300}; features standardised.",
+    "**Random Forest** (Breiman, 2001): averages 500 decision trees, can capture non-linear effects and interactions (e.g. volume mattering more after a large move). Grid: max depth {3, 6, none} \u00d7 min leaf size {5, 15} \u00d7 share of features per split {0.33, 1.0}.",
+    "**Gradient Boosting** (Friedman, 2001): sequentially corrects errors with shallow trees; strong on tabular data but prone to overfitting. Grid: learning rate {0.02, 0.05} \u00d7 trees {100, 300} \u00d7 depth {2, 3}; subsample 0.8."
+   ]
+  },
+  {
+   "t": "p",
+   "text": "Each grid point was fitted on the training data and scored by validation QLIKE \u2013 a deliberately small search (7, 12 and 8 settings) so that the validation period is not over-fitted. Neural networks/LSTM were not used: with about 250 training observations they would have far more parameters than data points."
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 13. Selected hyper-parameters"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Model",
+    "Selected setting",
+    "Validation QLIKE"
+   ],
+   "rows": [
+    [
+     "Ridge regression",
+     "\u03b1 = 0.01 (smallest in grid)",
+     "0.5870"
+    ],
+    [
+     "Random forest",
+     "max depth 6, min leaf 5, 33% of features per split",
+     "0.6766"
+    ],
+    [
+     "Gradient boosting",
+     "learning rate 0.05, 100 trees, depth 2",
+     "0.6627"
+    ]
+   ],
+   "widths": [
+    1.5,
+    3.5,
+    1.2
+   ],
+   "small": false,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "Ridge chose the weakest penalty, and validation QLIKE barely changes between \u03b1 = 0.01 and \u03b1 = 1 (0.5870 vs 0.5878): the model is effectively an ordinary least-squares 'HAR-X' regression. Extending the grid further would not change the forecasts materially."
+  },
+  {
+   "t": "h2",
+   "text": "5.7 Evaluation metrics"
+  },
+  {
+   "t": "bullets",
+   "items": [
+    "**QLIKE (primary):** L = \u03c3\u00b2/\u03c3\u0302\u00b2 \u2212 ln(\u03c3\u00b2/\u03c3\u0302\u00b2) \u2212 1, computed on variances. Zero for a perfect forecast; lower is better; unit-free. Patton (2011) showed that QLIKE ranks forecasts correctly even when true volatility is only observed through a noisy proxy; it also penalises under-prediction of risk more than over-prediction, matching a risk manager's priorities. Limitation: very quiet days (tiny ranges) can produce large values for every model.",
+    "**RMSE:** \u221amean(\u03c3 \u2212 \u03c3\u0302)\u00b2, in percentage points of daily volatility. Penalises large errors heavily, so it is sensitive to single extreme days.",
+    "**MAE:** mean |\u03c3 \u2212 \u03c3\u0302|, in percentage points; robust to outliers and easy to interpret.",
+    "**Mincer\u2013Zarnowitz R\u00b2:** R\u00b2 from regressing actual on forecast volatility; shows how much variation the forecast tracks, ignoring bias.",
+    "**Diebold\u2013Mariano test** (Diebold and Mariano, 1995, with the Harvey et al., 1997 small-sample correction): tests H0 that two models have equal expected loss. A negative statistic means the first model has lower loss.",
+    "**Relative improvement** = 100 \u00d7 (baseline loss \u2212 model loss) / baseline loss. MAPE was not used because it explodes on days with very small volatility."
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "5.8 Leakage prevention (summary)"
+  },
+  {
+   "t": "bullets",
+   "items": [
+    "Chronological split; no random shuffling anywhere.",
+    "Every feature is lagged by one trading day; rolling windows end at day t.",
+    "ADF/KPSS, ARIMA order selection, the regime threshold and all scalers use training data only.",
+    "Hyper-parameters and the GARCH variant are chosen on validation data; the test period is used exactly once.",
+    "Calibration and smearing factors are estimated on the fitting sample, never on the forecast period.",
+    "Corporate-action corrections use announced dividend/rights terms, which were public before the event."
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "5.9 Additional investigation"
+  },
+  {
+   "t": "p",
+   "text": "The primary additional investigation is **performance across volatility regimes and over time**. Each out-of-sample day (validation + test, 201 days) is classified at the forecast origin as *high-volatility* if the trailing 22-day mean volatility exceeds its training-sample median (1.23% per day), otherwise *low-volatility*. The threshold is fixed from training data, so regime labels never use future information. We complement this with rolling 22-day losses, two externally documented shock windows, a sensitivity analysis for the 1 December 2025 observation, permutation feature importance and a full re-run on the non-voting share."
+  },
+  {
+   "t": "h1",
+   "text": "6. Results"
+  },
+  {
+   "t": "h2",
+   "text": "6.1 Validation and test performance"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 14. Model comparison \u2013 one-day-ahead forecasts (QLIKE primary; RMSE/MAE in percentage points)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Model",
+    "Approach",
+    "Train QLIKE",
+    "Val QLIKE",
+    "Test QLIKE",
+    "Val RMSE",
+    "Test RMSE",
+    "Test MAE",
+    "Test MZ R\u00b2",
+    "Val rank",
+    "Test rank"
+   ],
+   "rows": [
+    [
+     "Naive (sigma_t)",
+     "Baseline",
+     "1.861",
+     "0.989",
+     "4.594",
+     "0.959",
+     "1.512",
+     "0.615",
+     "0.023",
+     "6",
+     "7"
+    ],
+    [
+     "Historical mean (22-day)",
+     "Baseline",
+     "0.771",
+     "1.046",
+     "3.140",
+     "1.032",
+     "1.206",
+     "0.566",
+     "0.004",
+     "7",
+     "6"
+    ],
+    [
+     "ARIMA(1, 0, 1) on ln-vol",
+     "Traditional",
+     "0.626",
+     "0.659",
+     "1.937",
+     "0.879",
+     "1.146",
+     "0.520",
+     "0.036",
+     "2",
+     "4"
+    ],
+    [
+     "GARCH(1,1)-t",
+     "Traditional",
+     "0.632",
+     "0.816",
+     "1.686",
+     "1.050",
+     "1.149",
+     "0.569",
+     "0.043",
+     "5",
+     "2"
+    ],
+    [
+     "Ridge regression",
+     "Machine learning",
+     "0.618",
+     "0.587",
+     "1.658",
+     "0.869",
+     "1.152",
+     "0.566",
+     "0.054",
+     "1",
+     "1"
+    ],
+    [
+     "Random forest",
+     "Machine learning",
+     "0.361",
+     "0.677",
+     "2.169",
+     "0.852",
+     "1.151",
+     "0.508",
+     "0.031",
+     "4",
+     "5"
+    ],
+    [
+     "Gradient boosting",
+     "Machine learning",
+     "0.334",
+     "0.663",
+     "1.893",
+     "0.836",
+     "1.153",
+     "0.515",
+     "0.034",
+     "3",
+     "3"
+    ]
+   ],
+   "widths": [
+    2.2,
+    1.4,
+    0.8,
+    0.8,
+    0.8,
+    0.8,
+    0.8,
+    0.8,
+    0.8,
+    0.6,
+    0.6
+   ],
+   "small": true,
+   "highlight": [
+    4
+   ]
+  },
+  {
+   "t": "p",
+   "text": "**Validation.** Ridge regression had the lowest validation QLIKE (0.587), followed by ARIMA(1, 0, 1) on ln-vol (0.659); both baselines were worst (naive 0.989; historical mean 1.046)."
+  },
+  {
+   "t": "p",
+   "text": "**Test.** Ridge regression again ranked first (1.658), followed by GARCH(1,1)-t (1.686). The baselines were last (historical mean 3.140, naive 4.594). All QLIKE values are much higher on the test set than on validation \u2013 not because the models deteriorated in general but because of a single day: on 1 December 2025 the actual volatility was 11.2%, roughly ten times a typical forecast. RMSE is almost identical for the five fitted models (1.146\u20131.153) because that day alone contributes about 1.0 to the test mean squared error of every model."
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 15. Relative improvement over the baselines on the test period"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Model",
+    "QLIKE vs 22-day mean (%)",
+    "RMSE vs 22-day mean (%)",
+    "QLIKE vs naive (%)"
+   ],
+   "rows": [
+    [
+     "Naive (sigma_t)",
+     "-46.3",
+     "-25.3",
+     "0.0"
+    ],
+    [
+     "Historical mean (22-day)",
+     "0.0",
+     "0.0",
+     "31.6"
+    ],
+    [
+     "ARIMA(1, 0, 1) on ln-vol",
+     "38.3",
+     "5.0",
+     "57.8"
+    ],
+    [
+     "GARCH(1,1)-t",
+     "46.3",
+     "4.7",
+     "63.3"
+    ],
+    [
+     "Ridge regression",
+     "47.2",
+     "4.5",
+     "63.9"
+    ],
+    [
+     "Random forest",
+     "30.9",
+     "4.5",
+     "52.8"
+    ],
+    [
+     "Gradient boosting",
+     "39.7",
+     "4.5",
+     "58.8"
+    ]
+   ],
+   "widths": [
+    2.5,
+    1.4,
+    1.4,
+    1.4
+   ],
+   "small": false,
+   "highlight": []
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 15b. Model summary: diagnostics and short interpretation"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Model",
+    "Key diagnostics",
+    "Interpretation"
+   ],
+   "rows": [
+    [
+     "Naive (sigma_t)",
+     "No parameters",
+     "Reacts fully to one day's noise; worst on test (largest losses on calm days)."
+    ],
+    [
+     "Historical mean (22-day)",
+     "No parameters",
+     "Smooth but slow; over-predicts after bursts and under-predicts at their start."
+    ],
+    [
+     "ARIMA(1, 0, 1) on ln-vol",
+     "Residual Ljung\u2013Box p > 0.8; AR 0.77, MA \u22120.44; tiny train\u2013val gap",
+     "Captures the linear persistence of ln-volatility; best on test when 1 Dec is excluded."
+    ],
+    [
+     "GARCH(1,1)-t",
+     "\u03b2 only marginally significant; persistence 0.73; \u03bd \u2248 3.8; std. residuals autocorrelated",
+     "Learns from noisy squared returns; weakest fitted model on validation; test rank helped by higher average forecasts."
+    ],
+    [
+     "Ridge regression",
+     "\u03b1 at grid minimum (\u2248 OLS); train QLIKE \u2248 validation QLIKE",
+     "Linear HAR-type model plus activity variables; best on validation and on all-day test; not significantly better than the others."
+    ],
+    [
+     "Random forest",
+     "Train QLIKE about half of validation QLIKE",
+     "Overfits ~250 training days; competitive once the outlier is removed and on the X share."
+    ],
+    [
+     "Gradient boosting",
+     "Train QLIKE about half of validation QLIKE",
+     "Overfits but reacts well to shocks (best in the April 2025 tariff window)."
+    ]
+   ],
+   "widths": [
+    1.8,
+    2.6,
+    3.2
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "h2",
+   "text": "6.2 Are the differences statistically significant?"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 16. Diebold\u2013Mariano tests on the test period (negative statistic = lower loss than the reference)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Model",
+    "vs 22-day mean: DM (QLIKE)",
+    "p",
+    "vs 22-day mean: DM (sq. err.)",
+    "p",
+    "vs Ridge regression: DM (QLIKE)",
+    "p"
+   ],
+   "rows": [
+    [
+     "Naive (sigma_t)",
+     "1.14",
+     "0.258",
+     "1.02",
+     "0.312",
+     "1.18",
+     "0.240"
+    ],
+    [
+     "ARIMA(1, 0, 1) on ln-vol",
+     "-1.29",
+     "0.200",
+     "-2.30",
+     "0.024",
+     "0.96",
+     "0.341"
+    ],
+    [
+     "GARCH(1,1)-t",
+     "-1.18",
+     "0.239",
+     "-1.57",
+     "0.120",
+     "1.05",
+     "0.296"
+    ],
+    [
+     "Ridge regression",
+     "-1.21",
+     "0.228",
+     "-1.51",
+     "0.134",
+     "\u2013",
+     "\u2013"
+    ],
+    [
+     "Random forest",
+     "-1.38",
+     "0.172",
+     "-2.07",
+     "0.041",
+     "0.98",
+     "0.330"
+    ],
+    [
+     "Gradient boosting",
+     "-1.27",
+     "0.208",
+     "-1.72",
+     "0.089",
+     "0.97",
+     "0.333"
+    ]
+   ],
+   "widths": [
+    2.2,
+    1.1,
+    0.7,
+    1.1,
+    0.7,
+    1.1,
+    0.7
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "With all 102 test days, no model beats the historical mean significantly under QLIKE (all p > 0.17), because the loss differences are dominated by the 1 December outlier, which inflates their variance. Under squared error, ARIMA (p = 0.024) and Random Forest (p = 0.041) are significantly better than the historical mean at 5%. Against Ridge \u2013 the best model on validation \u2013 no other model, not even a baseline, differs significantly (all p > 0.2). When the outlier is excluded (Section 6.6), ARIMA, Random Forest and Gradient Boosting beat the historical mean significantly under QLIKE."
+  },
+  {
+   "t": "h2",
+   "text": "6.3 Forecast plots"
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig08_full_forecast_N.png",
+   "width": 620,
+   "alt": "Figure 8. Full sample with split periods, out-of-sample Ridge forecasts, the 22-day mean baseline and the ARIMA 80% prediction interval for the test period. Interpretation: the model forecasts react within a day to volatility bursts (April 2025), whereas the historical mean responds slowly and stays high after the burst has faded."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 8. Full sample with split periods, out-of-sample Ridge forecasts, the 22-day mean baseline and the ARIMA 80% prediction interval for the test period. Interpretation: the model forecasts react within a day to volatility bursts (April 2025), whereas the historical mean responds slowly and stays high after the burst has faded."
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig15a_test_forecasts_traditional_N.png",
+   "width": 620,
+   "alt": "Figure 9. Test-period forecasts of the traditional models against actual volatility and the baseline. Interpretation: ARIMA and GARCH track the level and the persistence of spikes; GARCH reacts more strongly to large returns and sits higher on average."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 9. Test-period forecasts of the traditional models against actual volatility and the baseline. Interpretation: ARIMA and GARCH track the level and the persistence of spikes; GARCH reacts more strongly to large returns and sits higher on average."
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig15b_test_forecasts_machine_N.png",
+   "width": 620,
+   "alt": "Figure 10. Test-period forecasts of the ML models. Interpretation: the three ML forecasts are very similar to each other and to ARIMA; none anticipated the 1 December spike, and all over-predicted the quiet days of late December."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 10. Test-period forecasts of the ML models. Interpretation: the three ML forecasts are very similar to each other and to ARIMA; none anticipated the 1 December spike, and all over-predicted the quiet days of late December."
+  },
+  {
+   "t": "p",
+   "text": "Mean test forecasts (1.05\u20131.18%) exceed the mean actual volatility on all test days except the outlier (0.88%), i.e. the models systematically over-predicted risk in the calm test period \u2013 the consequence of estimating on a more volatile history. In risk-management terms this is the conservative direction of error."
+  },
+  {
+   "t": "h2",
+   "text": "6.4 Model diagnostics"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 17. Ljung\u2013Box tests on residuals of the traditional models (training sample)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Model",
+    "Residual",
+    "Lag",
+    "LB stat",
+    "p-value",
+    "Autocorrelation left?"
+   ],
+   "rows": [
+    [
+     "ARIMA(1, 0, 1) on ln-vol",
+     "one-step ln-vol error",
+     "5",
+     "0.38",
+     "0.996",
+     "no"
+    ],
+    [
+     "ARIMA(1, 0, 1) on ln-vol",
+     "one-step ln-vol error",
+     "10",
+     "5.66",
+     "0.843",
+     "no"
+    ],
+    [
+     "ARIMA(1, 0, 1) on ln-vol",
+     "one-step ln-vol error",
+     "20",
+     "9.83",
+     "0.971",
+     "no"
+    ],
+    [
+     "GARCH(1,1)-t",
+     "standardised",
+     "5",
+     "23.98",
+     "<0.001",
+     "yes"
+    ],
+    [
+     "GARCH(1,1)-t",
+     "standardised",
+     "10",
+     "29.60",
+     "<0.001",
+     "yes"
+    ],
+    [
+     "GARCH(1,1)-t",
+     "squared standardised",
+     "5",
+     "0.56",
+     "0.990",
+     "no"
+    ],
+    [
+     "GARCH(1,1)-t",
+     "squared standardised",
+     "10",
+     "1.77",
+     "0.998",
+     "no"
+    ]
+   ],
+   "widths": [
+    2,
+    2,
+    0.5,
+    0.9,
+    0.9,
+    1.2
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig09_arima_residuals_N.png",
+   "width": 620,
+   "alt": "Figure 11. ARIMA(1,0,1) residual diagnostics. Interpretation: residuals show no remaining autocorrelation (Ljung\u2013Box p > 0.8) and are roughly symmetric \u2013 the model has captured the linear dynamics of ln-volatility."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 11. ARIMA(1,0,1) residual diagnostics. Interpretation: residuals show no remaining autocorrelation (Ljung\u2013Box p > 0.8) and are roughly symmetric \u2013 the model has captured the linear dynamics of ln-volatility."
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig10_garch_diagnostics_N.png",
+   "width": 620,
+   "alt": "Figure 12. GARCH(1,1)-t diagnostics. Interpretation: squared standardised residuals have no remaining ARCH structure and the Student-t fits the tails, but standardised residuals are autocorrelated (p < 0.01) because the constant-mean equation ignores the return autocorrelation found in Section 4.4."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 12. GARCH(1,1)-t diagnostics. Interpretation: squared standardised residuals have no remaining ARCH structure and the Student-t fits the tails, but standardised residuals are autocorrelated (p < 0.01) because the constant-mean equation ignores the return autocorrelation found in Section 4.4."
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig11_ml_diagnostics_N.png",
+   "width": 620,
+   "alt": "Figure 13. ML test diagnostics: actual vs forecast (top) and errors over time (bottom). Interpretation: forecasts are compressed into a narrow band (roughly 0.7\u20132.8%) while actual values range much more widely; errors are negative (over-prediction) on most quiet days and large and positive on shock days."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 13. ML test diagnostics: actual vs forecast (top) and errors over time (bottom). Interpretation: forecasts are compressed into a narrow band (roughly 0.7\u20132.8%) while actual values range much more widely; errors are negative (over-prediction) on most quiet days and large and positive on shock days."
+  },
+  {
+   "t": "p",
+   "text": "A clear generalisation gap appears for the tree models: Random Forest's training QLIKE (0.361) is about half its validation QLIKE (0.677), and similarly for Gradient Boosting (0.334 vs 0.663). Ridge and ARIMA show almost no gap (0.618 vs 0.587; 0.626 vs 0.659). The trees memorised training noise that did not recur."
+  },
+  {
+   "t": "h2",
+   "text": "6.5 Additional investigation: volatility regimes, stability and shocks"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 18. Out-of-sample QLIKE by volatility regime (validation + test)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Model",
+    "Low-vol, all (115 d)",
+    "High-vol (86 d)",
+    "Low-vol excl. 1 Dec",
+    "Rank low (excl.)",
+    "Rank high"
+   ],
+   "rows": [
+    [
+     "Naive (sigma_t)",
+     "4.289",
+     "0.851",
+     "1.078",
+     "7",
+     "6"
+    ],
+    [
+     "Historical mean (22-day)",
+     "2.961",
+     "0.969",
+     "0.870",
+     "6",
+     "7"
+    ],
+    [
+     "ARIMA(1, 0, 1) on ln-vol",
+     "1.829",
+     "0.610",
+     "0.559",
+     "2",
+     "4"
+    ],
+    [
+     "GARCH(1,1)-t",
+     "1.635",
+     "0.753",
+     "0.626",
+     "5",
+     "5"
+    ],
+    [
+     "Ridge regression",
+     "1.554",
+     "0.565",
+     "0.540",
+     "1",
+     "2"
+    ],
+    [
+     "Random forest",
+     "2.062",
+     "0.594",
+     "0.587",
+     "3",
+     "3"
+    ],
+    [
+     "Gradient boosting",
+     "1.831",
+     "0.559",
+     "0.607",
+     "4",
+     "1"
+    ]
+   ],
+   "widths": [
+    2.4,
+    1.2,
+    1.2,
+    1.2,
+    0.9,
+    0.9
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig12_regime_qlike_N.png",
+   "width": 620,
+   "alt": "Figure 14. QLIKE by regime with and without 1 December 2025. Interpretation: excluding the single shock, all five models have similar losses in both regimes and clearly lower losses than both the baselines; the naive forecast is worst in calm periods and the historical mean worst in turbulent ones."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 14. QLIKE by regime with and without 1 December 2025. Interpretation: excluding the single shock, all five models have similar losses in both regimes and clearly lower losses than both the baselines; the naive forecast is worst in calm periods and the historical mean worst in turbulent ones."
+  },
+  {
+   "t": "p",
+   "text": "Four findings emerge. (1) **The models' advantage is not regime-specific.** In both regimes all five fitted models beat both baselines. (2) **Baselines fail in opposite regimes.** The naive forecast is worst in calm periods (QLIKE 1.08), where single-day noise dominates, and the historical mean is worst in turbulent periods (0.97), where it reacts too slowly. (3) **GARCH is relatively weakest in the high-volatility regime** among fitted models (0.753 vs 0.559 for Gradient Boosting), consistent with its imprecise dynamics. (4) **The worst losses come from a shock arriving in a calm regime:** the 1 December spike fell in the low-volatility regime, and including it multiplies every model's low-regime loss roughly three-fold."
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig13_rolling_qlike_N.png",
+   "width": 620,
+   "alt": "Figure 15. Rolling 22-day QLIKE over the out-of-sample period (log scale). Interpretation: the five fitted models move together and stay below the baselines most of the time; the ordering among them changes from month to month, so no single model is consistently best."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 15. Rolling 22-day QLIKE over the out-of-sample period (log scale). Interpretation: the five fitted models move together and stay below the baselines most of the time; the ordering among them changes from month to month, so no single model is consistently best."
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 19. Performance in two documented shock windows"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Model",
+    "Tariff shock 2\u201311 Apr 2025: QLIKE",
+    "mean forecast (%)",
+    "Post-cyclone 1\u20135 Dec 2025: QLIKE",
+    "mean forecast (%)"
+   ],
+   "rows": [
+    [
+     "Naive (sigma_t)",
+     "0.94",
+     "3.32",
+     "93.32",
+     "3.85"
+    ],
+    [
+     "Historical mean (22-day)",
+     "3.08",
+     "1.66",
+     "60.77",
+     "1.13"
+    ],
+    [
+     "ARIMA(1, 0, 1) on ln-vol",
+     "1.56",
+     "2.11",
+     "36.74",
+     "1.76"
+    ],
+    [
+     "GARCH(1,1)-t",
+     "1.24",
+     "3.04",
+     "29.27",
+     "1.47"
+    ],
+    [
+     "Ridge regression",
+     "1.00",
+     "2.97",
+     "29.39",
+     "2.17"
+    ],
+    [
+     "Random forest",
+     "1.06",
+     "2.19",
+     "42.63",
+     "1.49"
+    ],
+    [
+     "Gradient boosting",
+     "0.83",
+     "2.41",
+     "35.41",
+     "1.64"
+    ],
+    [
+     "Actual mean volatility",
+     "",
+     "3.16",
+     "",
+     "4.26"
+    ]
+   ],
+   "widths": [
+    2.3,
+    1.3,
+    1.1,
+    1.3,
+    1.1
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "During the April 2025 tariff sell-off, when the S&P SL20 triggered a circuit breaker (Daily Mirror, 2025), Gradient Boosting had the lowest loss, followed by the naive forecast and Ridge \u2013 the models that react fastest to the previous day's large move; the 22-day mean, still anchored to calmer March data, had a loss three to four times larger. After Cyclone Ditwah, every model under-predicted the first day badly (forecasts near 1% against 11.2%) and most then over-predicted the following days; GARCH and Ridge had the lowest losses in that window."
+  },
+  {
+   "t": "h2",
+   "text": "6.6 Sensitivity to the 1 December 2025 observation"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 20. Test results with and without 1 December 2025"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Model",
+    "QLIKE (all)",
+    "QLIKE (excl.)",
+    "RMSE (all)",
+    "RMSE (excl.)",
+    "Rank (all)",
+    "Rank (excl.)"
+   ],
+   "rows": [
+    [
+     "Naive (sigma_t)",
+     "4.594",
+     "0.973",
+     "1.512",
+     "1.087",
+     "7",
+     "7"
+    ],
+    [
+     "Historical mean (22-day)",
+     "3.140",
+     "0.782",
+     "1.206",
+     "0.610",
+     "6",
+     "6"
+    ],
+    [
+     "ARIMA(1, 0, 1) on ln-vol",
+     "1.937",
+     "0.504",
+     "1.146",
+     "0.520",
+     "4",
+     "1"
+    ],
+    [
+     "GARCH(1,1)-t",
+     "1.686",
+     "0.548",
+     "1.149",
+     "0.546",
+     "2",
+     "5"
+    ],
+    [
+     "Ridge regression",
+     "1.658",
+     "0.515",
+     "1.152",
+     "0.551",
+     "1",
+     "4"
+    ],
+    [
+     "Random forest",
+     "2.169",
+     "0.505",
+     "1.151",
+     "0.518",
+     "5",
+     "2"
+    ],
+    [
+     "Gradient boosting",
+     "1.893",
+     "0.511",
+     "1.153",
+     "0.536",
+     "3",
+     "3"
+    ]
+   ],
+   "widths": [
+    2.4,
+    1,
+    1,
+    1,
+    1,
+    0.8,
+    0.8
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "Excluding one day out of 102 changes the ranking: ARIMA(1, 0, 1) on ln-vol moves from fourth to first, Random Forest from fifth to second, and GARCH from second to fifth; Ridge drops to fourth. The spread between the top four models is tiny (0.504\u20130.515), while every model is 30\u201336% better than the historical mean. In Diebold\u2013Mariano tests without the outlier, ARIMA (p = 0.026), Random Forest (p = 0.032) and Gradient Boosting (p = 0.034) beat the historical mean at 5%; Ridge is borderline (p = 0.051) and GARCH is not (p = 0.088). Excluding the day is *not* our main result \u2013 it would be cherry-picking \u2013 but it shows how fragile any 'winner' is."
+  },
+  {
+   "t": "h2",
+   "text": "6.7 What drives the ML forecasts? Feature importance"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 21. Permutation importance: increase in test QLIKE when a feature is shuffled (test excl. 1 Dec; 30 repeats)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Feature",
+    "Ridge",
+    "Random forest",
+    "Gradient boosting"
+   ],
+   "rows": [
+    [
+     "lv_0",
+     "0.0333",
+     "0.0110",
+     "0.0300"
+    ],
+    [
+     "lv_1",
+     "0.0434",
+     "0.0070",
+     "0.0232"
+    ],
+    [
+     "log_trades_0",
+     "0.0289",
+     "0.0132",
+     "0.0124"
+    ],
+    [
+     "absret_0",
+     "0.0195",
+     "0.0172",
+     "0.0069"
+    ],
+    [
+     "abn_volume",
+     "0.0221",
+     "0.0005",
+     "0.0067"
+    ],
+    [
+     "ret_0",
+     "0.0079",
+     "0.0083",
+     "0.0128"
+    ],
+    [
+     "lv_2",
+     "0.0104",
+     "-0.0003",
+     "0.0001"
+    ],
+    [
+     "days_to_next",
+     "0.0051",
+     "0.0025",
+     "-0.0019"
+    ],
+    [
+     "lv_w",
+     "0.0057",
+     "0.0005",
+     "-0.0010"
+    ],
+    [
+     "monday_next",
+     "0.0005",
+     "0.0021",
+     "0.0000"
+    ],
+    [
+     "lv_m",
+     "-0.0008",
+     "-0.0020",
+     "-0.0020"
+    ],
+    [
+     "log_volume_0",
+     "-0.0003",
+     "0.0000",
+     "-0.0050"
+    ],
+    [
+     "ret_m",
+     "-0.0023",
+     "-0.0058",
+     "-0.0020"
+    ],
+    [
+     "absret_w",
+     "0.0009",
+     "-0.0036",
+     "-0.0103"
+    ]
+   ],
+   "widths": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "img",
+   "path": "../outputs/figures/fig14_permutation_importance_N.png",
+   "width": 620,
+   "alt": "Figure 16. Permutation importance by model. Interpretation: all three models rely mainly on the last two days' volatility, the number of trades and the latest (absolute and signed) return; weekly/monthly averages, momentum and calendar variables add almost nothing out of sample."
+  },
+  {
+   "t": "caption",
+   "text": "Figure 16. Permutation importance by model. Interpretation: all three models rely mainly on the last two days' volatility, the number of trades and the latest (absolute and signed) return; weekly/monthly averages, momentum and calendar variables add almost nothing out of sample."
+  },
+  {
+   "t": "p",
+   "text": "The importance pattern explains much of the comparison. The useful information is short-memory own-volatility (which ARIMA already exploits) plus trading activity (which ARIMA cannot use). The activity features give the ML models an edge on days following unusual trading, such as the April 2025 sell-off, but on ordinary days that edge is small. Permutation importance measures predictive reliance, not causation: the number of trades does not *cause* volatility; both respond to the arrival of news."
+  },
+  {
+   "t": "h2",
+   "text": "6.8 Robustness check: the non-voting share (COMB.X0000)"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 22. Identical pipeline applied to COMB.X0000"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Model",
+    "Approach",
+    "Val QLIKE",
+    "Test QLIKE",
+    "Test RMSE",
+    "Val rank",
+    "Test rank"
+   ],
+   "rows": [
+    [
+     "Naive (sigma_t)",
+     "Baseline",
+     "1.131",
+     "1.125",
+     "0.803",
+     "7",
+     "7"
+    ],
+    [
+     "Historical mean (22-day)",
+     "Baseline",
+     "1.097",
+     "0.683",
+     "0.703",
+     "6",
+     "6"
+    ],
+    [
+     "ARIMA(1, 0, 1) on ln-vol",
+     "Traditional",
+     "0.866",
+     "0.528",
+     "0.660",
+     "4",
+     "4"
+    ],
+    [
+     "GARCH(1,1)-t",
+     "Traditional",
+     "0.904",
+     "0.513",
+     "0.717",
+     "5",
+     "3"
+    ],
+    [
+     "Ridge regression",
+     "Machine learning",
+     "0.797",
+     "0.484",
+     "0.665",
+     "1",
+     "2"
+    ],
+    [
+     "Random forest",
+     "Machine learning",
+     "0.823",
+     "0.470",
+     "0.646",
+     "3",
+     "1"
+    ],
+    [
+     "Gradient boosting",
+     "Machine learning",
+     "0.804",
+     "0.543",
+     "0.678",
+     "2",
+     "5"
+    ]
+   ],
+   "widths": [
+    2.4,
+    1.4,
+    0.9,
+    0.9,
+    0.9,
+    0.7,
+    0.7
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "The same specifications were selected independently (ARIMA(1,0,1), GARCH(1,1)-t; Ridge best on validation). On the test period all five models again beat both baselines, but the winner is Random forest (0.470), with Ridge second (0.484). The X share had no comparable extreme day in the test period, so its results resemble the 'excluding 1 December' results for the voting share: models within a narrow band, baselines clearly worse."
+  },
+  {
+   "t": "h1",
+   "text": "7. Discussion"
+  },
+  {
+   "t": "h2",
+   "text": "7.1 Best-performing model and comparison with the baselines"
+  },
+  {
+   "t": "p",
+   "text": "On the pre-specified criterion \u2013 test QLIKE on all days \u2013 **Ridge regression is the best model** (1.658), and it was also the model chosen on validation, so validation and test agreed on the winner. It reduced QLIKE by 47% relative to the 22-day historical mean and by 64% relative to the naive forecast. Hypothesis H1 is supported: every fitted model beat both baselines on the test period, by 31\u201347% versus the historical mean. However, the *best observed* model is not the same as the model with evidence of *better generalisation*: the differences among the five fitted models are not statistically significant, and the ranking changes with one observation or with the share class."
+  },
+  {
+   "t": "h2",
+   "text": "7.2 Traditional versus machine learning \u2013 why so similar?"
+  },
+  {
+   "t": "p",
+   "text": "Hypothesis H2 is supported: machine learning did not clearly outperform. The evidence points to four reasons."
+  },
+  {
+   "t": "numbers",
+   "items": [
+    "**The signal is mostly linear and short-memory.** ARIMA(1,0,1) leaves no residual autocorrelation, the best ML model is a nearly unpenalised *linear* regression, and permutation importance is concentrated on the last two days of volatility. There is little non-linear structure for trees to find.",
+    "**Small sample, high noise \u2192 overfitting.** With about 250 training days, Random Forest and Gradient Boosting fitted the training data roughly twice as well as they forecast; the gains from flexibility were eaten by variance.",
+    "**Extra information helps only sometimes.** Volume and trade counts gave Ridge and Gradient Boosting an advantage in the tariff-shock window and in the high-volatility regime, which is why Ridge edges out ARIMA overall, but on ordinary days the activity variables add little.",
+    "**The volatility proxy matters more than the model family.** GARCH is the only model that learns from squared close-to-close returns, which showed no detectable ARCH effects in the training data. Its parameters were imprecise, it had the worst validation QLIKE of the fitted models and it was weakest in the high-volatility regime. Its good test rank with all days comes largely from forecasting higher volatility on average, which happened to soften the 1 December miss; without that day it ranks fifth. By contrast, ARIMA on log range volatility \u2013 a traditional model using a better measurement \u2013 was as good as any ML model."
+   ],
+   "ref": "num3"
+  },
+  {
+   "t": "h2",
+   "text": "7.3 Regimes, shocks and the limits of forecasting"
+  },
+  {
+   "t": "p",
+   "text": "Hypothesis H3 is only partly supported. The ordering of baselines changes sharply between regimes, but the ordering of the five fitted models is broadly similar in calm and turbulent periods. The more important regime finding is about *when* the models fail: all of them extrapolate recent history, so the costliest error is a shock that arrives when recent volatility is low (1 December 2025). No model in this study can anticipate such an event from price and volume history alone."
+  },
+  {
+   "t": "h2",
+   "text": "7.4 Financial and business implications"
+  },
+  {
+   "t": "bullets",
+   "items": [
+    "**Use a model, not the 22-day historical volatility.** For a CSE risk desk, any of the fitted models would have cut the QLIKE loss of daily volatility forecasts by roughly 30\u201347% relative to the simple historical average, and they react within a day to stress, while the historical average lags by weeks and then stays too high.",
+    "**A simple, transparent model is sufficient.** ARIMA on log range volatility or a linear HAR-type regression with trading activity performs as well as tree ensembles, is easier to explain to a risk committee or regulator, and is less likely to break when market conditions change.",
+    "**Measure volatility from the daily range.** The high\u2013low range contains far more information about daily risk than closing prices alone; GARCH on close-to-close returns was the weakest fitted model.",
+    "**Complement models with event overlays.** Forecasts systematically under-predicted the first day of a sudden shock. Scenario add-ons for scheduled or obvious events (policy announcements, natural disasters, rights issues) and stress tests are still needed.",
+    "**Accuracy is not profit.** These are statistical risk forecasts. They do not predict price direction and do not, by themselves, imply any profitable trading strategy."
+   ]
+  },
+  {
+   "t": "h2",
+   "text": "7.5 What cannot be concluded"
+  },
+  {
+   "t": "bullets",
+   "items": [
+    "That machine learning is generally better or worse than traditional models: the evidence covers one stock, two years and one horizon.",
+    "That any model will keep its rank in 2026: rankings changed across evaluation subsets.",
+    "That trading activity *causes* volatility: importance is predictive association.",
+    "That the 1 December 2025 low reflects a genuine market-wide price: the data cannot tell us."
+   ]
+  },
+  {
+   "t": "h1",
+   "text": "8. Limitations and Future Improvements"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table 23. Limitations and realistic improvements"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Limitation",
+    "Why it matters",
+    "Improvement"
+   ],
+   "rows": [
+    [
+     "Short sample (478 days; ~250 training days)",
+     "Too few observations for stable tree ensembles; DM tests have low power.",
+     "Extend to 2015\u20132025 CSE data (including the 2022 crisis) and use rolling-origin evaluation over many test windows."
+    ],
+    [
+     "Single stock and single horizon",
+     "Results may not transfer to other banks or longer horizons.",
+     "Repeat on other S&P SL20 banks (HNB, SAMP, NTB) and compare 1-, 5- and 22-day horizons."
+    ],
+    [
+     "Volatility proxy ignores overnight moves; tick-size discreteness",
+     "Range understates true daily variation; quiet days look discrete.",
+     "Add the close-to-previous-close gap (Yang\u2013Zhang-type estimator) once a reliable open price is available; use intraday data for realised volatility."
+    ],
+    [
+     "Open price unusable in 2025",
+     "Prevents better range estimators and overnight/intraday decomposition.",
+     "Obtain verified OHLC data directly from the CSE or a data vendor."
+    ],
+    [
+     "One extreme, unverified observation dominates test metrics",
+     "Rankings and significance depend on one day.",
+     "Verify against CSE trade-level records; report robust losses and multiple test windows."
+    ],
+    [
+     "Fixed parameters during the test",
+     "Models cannot adapt to new regimes (e.g. calmer late 2025).",
+     "Re-estimate on an expanding window monthly; evaluate whether adaptivity reduces over-prediction."
+    ],
+    [
+     "Only own-stock information",
+     "Market-wide shocks (tariffs, cyclone) are not in the features.",
+     "Add lagged ASPI/S&P SL20 range volatility, USD/LKR moves and an event-day dummy known in advance."
+    ],
+    [
+     "GARCH mean equation ignores return autocorrelation",
+     "Residual autocorrelation slightly distorts the variance estimates.",
+     "Use an AR(1)-GARCH or a HAR/realised-GARCH that uses the range measure directly."
+    ],
+    [
+     "FY2023 dividend amount not fully verified",
+     "Affects one return in the training period.",
+     "Confirm with the 2023 annual report/CSE announcement."
+    ]
+   ],
+   "widths": [
+    2,
+    2.3,
+    3
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "h1",
+   "text": "9. Conclusion"
+  },
+  {
+   "t": "p",
+   "text": "The research question asked how effectively next-day volatility of COMB voting shares can be forecast by traditional time-series methods compared with machine learning, and what the differences teach us. The answer is: **effectively, and about equally well.** Daily range volatility is strongly persistent, so every model we built beat the naive and historical-mean baselines on an untouched five-month test period, by 31\u201347% in QLIKE relative to the historical mean. Ridge regression on lagged volatility and trading-activity features was the best model on both validation and test, but its advantage over ARIMA on log-volatility, Gradient Boosting, Random Forest and GARCH was not statistically significant and reversed under reasonable sensitivity checks. The differences teach three things: the predictable component of volatility is mainly linear and short-memory, so model flexibility adds little and over-fits with two years of data; the measurement of volatility (range-based versus squared returns) matters more than the model family; and all models share the same blind spot \u2013 sudden shocks that arrive in calm periods. For practical risk management on the CSE, a transparent model on range-based volatility, combined with judgement for identifiable events, is the defensible choice."
+  },
+  {
+   "t": "h1",
+   "text": "References"
+  },
+  {
+   "t": "ref",
+   "text": "Bollerslev, T. (1986) 'Generalized autoregressive conditional heteroskedasticity', *Journal of Econometrics*, 31(3), pp. 307\u2013327."
+  },
+  {
+   "t": "ref",
+   "text": "Breiman, L. (2001) 'Random forests', *Machine Learning*, 45(1), pp. 5\u201332."
+  },
+  {
+   "t": "ref",
+   "text": "Colombo Stock Exchange (2025) *Commercial Bank of Ceylon PLC \u2013 First and final dividend for the financial year ended 31 December 2024* [CSE announcement]. Available at: https://cdn.cse.lk/cmt/announcement_portal_prod/ (Accessed: 21 October 2026)."
+  },
+  {
+   "t": "ref",
+   "text": "Corsi, F. (2009) 'A simple approximate long-memory model of realized volatility', *Journal of Financial Econometrics*, 7(2), pp. 174\u2013196."
+  },
+  {
+   "t": "ref",
+   "text": "Daily Mirror (2024) 'ComBank stock takes a tumble following Rs.22.5bn rights issue announcement', *Daily Mirror* (Sri Lanka), 30 May. Available at: https://www.dailymirror.lk/print/business-news/ComBank-stock-takes-a-tumble-following-Rs-22-5bn-rights-issue-announcement/273-283652 (Accessed: 21 October 2026)."
+  },
+  {
+   "t": "ref",
+   "text": "Daily Mirror (2025) 'ASPI plunges over 700 points below 15,000 as global trade fears grip market', *Daily Mirror* (Sri Lanka), 7 April. Available at: https://www.dailymirror.lk/print/breaking-news/ASPI-plunges-over-700-Points-below-15-000-as-global-trade-fears-grip-market/108-306211 (Accessed: 21 October 2026)."
+  },
+  {
+   "t": "ref",
+   "text": "Dickey, D.A. and Fuller, W.A. (1979) 'Distribution of the estimators for autoregressive time series with a unit root', *Journal of the American Statistical Association*, 74(366), pp. 427\u2013431."
+  },
+  {
+   "t": "ref",
+   "text": "Diebold, F.X. and Mariano, R.S. (1995) 'Comparing predictive accuracy', *Journal of Business & Economic Statistics*, 13(3), pp. 253\u2013263."
+  },
+  {
+   "t": "ref",
+   "text": "Duan, N. (1983) 'Smearing estimate: a nonparametric retransformation method', *Journal of the American Statistical Association*, 78(383), pp. 605\u2013610."
+  },
+  {
+   "t": "ref",
+   "text": "Engle, R.F. (1982) 'Autoregressive conditional heteroscedasticity with estimates of the variance of United Kingdom inflation', *Econometrica*, 50(4), pp. 987\u20131007."
+  },
+  {
+   "t": "ref",
+   "text": "First Capital (2024) *COMB \u2013 Earnings update: Maintain BUY* [equity research report], 4 June. Available at: https://firstcapital.lk/wp-content/uploads/2024/06/COMB-Earnings-Update-MAINTAIN-BUY-04-06-24.pdf (Accessed: 21 October 2026)."
+  },
+  {
+   "t": "ref",
+   "text": "Friedman, J.H. (2001) 'Greedy function approximation: a gradient boosting machine', *Annals of Statistics*, 29(5), pp. 1189\u20131232."
+  },
+  {
+   "t": "ref",
+   "text": "Glosten, L.R., Jagannathan, R. and Runkle, D.E. (1993) 'On the relation between the expected value and the volatility of the nominal excess return on stocks', *Journal of Finance*, 48(5), pp. 1779\u20131801."
+  },
+  {
+   "t": "ref",
+   "text": "Hansen, P.R. and Lunde, A. (2005) 'A forecast comparison of volatility models: does anything beat a GARCH(1,1)?', *Journal of Applied Econometrics*, 20(7), pp. 873\u2013889."
+  },
+  {
+   "t": "ref",
+   "text": "Harvey, D., Leybourne, S. and Newbold, P. (1997) 'Testing the equality of prediction mean squared errors', *International Journal of Forecasting*, 13(2), pp. 281\u2013291."
+  },
+  {
+   "t": "ref",
+   "text": "Hoerl, A.E. and Kennard, R.W. (1970) 'Ridge regression: biased estimation for nonorthogonal problems', *Technometrics*, 12(1), pp. 55\u201367."
+  },
+  {
+   "t": "ref",
+   "text": "Kwiatkowski, D., Phillips, P.C.B., Schmidt, P. and Shin, Y. (1992) 'Testing the null hypothesis of stationarity against the alternative of a unit root', *Journal of Econometrics*, 54(1\u20133), pp. 159\u2013178."
+  },
+  {
+   "t": "ref",
+   "text": "Ljung, G.M. and Box, G.E.P. (1978) 'On a measure of lack of fit in time series models', *Biometrika*, 65(2), pp. 297\u2013303."
+  },
+  {
+   "t": "ref",
+   "text": "Nelson, D.B. (1991) 'Conditional heteroskedasticity in asset returns: a new approach', *Econometrica*, 59(2), pp. 347\u2013370."
+  },
+  {
+   "t": "ref",
+   "text": "Parkinson, M. (1980) 'The extreme value method for estimating the variance of the rate of return', *Journal of Business*, 53(1), pp. 61\u201365."
+  },
+  {
+   "t": "ref",
+   "text": "Patton, A.J. (2011) 'Volatility forecast comparison using imperfect volatility proxies', *Journal of Econometrics*, 160(1), pp. 246\u2013256."
+  },
+  {
+   "t": "ref",
+   "text": "Pedregosa, F. et al. (2011) 'Scikit-learn: machine learning in Python', *Journal of Machine Learning Research*, 12, pp. 2825\u20132830."
+  },
+  {
+   "t": "ref",
+   "text": "Seabold, S. and Perktold, J. (2010) 'statsmodels: econometric and statistical modeling with Python', *Proceedings of the 9th Python in Science Conference*, pp. 92\u201396."
+  },
+  {
+   "t": "ref",
+   "text": "Sheppard, K. (2024) *arch: ARCH models in Python* [software documentation]. Available at: https://arch.readthedocs.io (Accessed: 21 October 2026)."
+  },
+  {
+   "t": "ref",
+   "text": "The Morning (2025) [Report on the CSE and the economic fallout of Cyclone Ditwah], *The Morning* (Sri Lanka), 28 December. Available at: https://www.themorning.lk/articles/lrNxXOcESf0J9qZfm11C (Accessed: 21 October 2026)."
+  },
+  {
+   "t": "pb"
+  },
+  {
+   "t": "h1",
+   "text": "Appendix A. Hyper-parameter search results (validation QLIKE)"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table A1. Ridge regression"
+  },
+  {
+   "t": "table",
+   "header": [
+    "alpha",
+    "val_QLIKE"
+   ],
+   "rows": [
+    [
+     "0.01",
+     "0.5870"
+    ],
+    [
+     "0.1",
+     "0.5871"
+    ],
+    [
+     "1",
+     "0.5878"
+    ],
+    [
+     "10",
+     "0.5940"
+    ],
+    [
+     "30",
+     "0.6039"
+    ],
+    [
+     "100",
+     "0.6249"
+    ],
+    [
+     "300",
+     "0.6619"
+    ]
+   ],
+   "widths": null,
+   "small": true,
+   "highlight": [
+    0
+   ]
+  },
+  {
+   "t": "tcaption",
+   "text": "Table A2. Random forest"
+  },
+  {
+   "t": "table",
+   "header": [
+    "max_depth",
+    "min_samples_leaf",
+    "max_features",
+    "val_QLIKE"
+   ],
+   "rows": [
+    [
+     "6",
+     "5",
+     "0.33",
+     "0.6766"
+    ],
+    [
+     "none",
+     "5",
+     "0.33",
+     "0.6786"
+    ],
+    [
+     "3",
+     "15",
+     "1",
+     "0.6788"
+    ],
+    [
+     "3",
+     "5",
+     "1",
+     "0.6805"
+    ],
+    [
+     "6",
+     "15",
+     "1",
+     "0.6810"
+    ],
+    [
+     "none",
+     "15",
+     "1",
+     "0.6815"
+    ],
+    [
+     "3",
+     "5",
+     "0.33",
+     "0.6844"
+    ],
+    [
+     "6",
+     "5",
+     "1",
+     "0.7020"
+    ],
+    [
+     "none",
+     "5",
+     "1",
+     "0.7050"
+    ],
+    [
+     "3",
+     "15",
+     "0.33",
+     "0.7059"
+    ],
+    [
+     "6",
+     "15",
+     "0.33",
+     "0.7073"
+    ],
+    [
+     "none",
+     "15",
+     "0.33",
+     "0.7078"
+    ]
+   ],
+   "widths": null,
+   "small": true,
+   "highlight": [
+    0
+   ]
+  },
+  {
+   "t": "tcaption",
+   "text": "Table A3. Gradient boosting"
+  },
+  {
+   "t": "table",
+   "header": [
+    "learning_rate",
+    "n_estimators",
+    "max_depth",
+    "val_QLIKE"
+   ],
+   "rows": [
+    [
+     "0.05",
+     "100",
+     "2",
+     "0.6627"
+    ],
+    [
+     "0.02",
+     "300",
+     "2",
+     "0.7020"
+    ],
+    [
+     "0.02",
+     "100",
+     "2",
+     "0.7057"
+    ],
+    [
+     "0.05",
+     "100",
+     "3",
+     "0.7193"
+    ],
+    [
+     "0.05",
+     "300",
+     "2",
+     "0.7266"
+    ],
+    [
+     "0.02",
+     "100",
+     "3",
+     "0.7348"
+    ],
+    [
+     "0.02",
+     "300",
+     "3",
+     "0.7419"
+    ],
+    [
+     "0.05",
+     "300",
+     "3",
+     "0.7618"
+    ]
+   ],
+   "widths": null,
+   "small": true,
+   "highlight": [
+    0
+   ]
+  },
+  {
+   "t": "tcaption",
+   "text": "Table A4. ARIMA order search on the training sample (10 best by AIC)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Order",
+    "AIC",
+    "BIC",
+    "Converged"
+   ],
+   "rows": [
+    [
+     "(1, 0, 1)",
+     "447.07",
+     "461.57",
+     "True"
+    ],
+    [
+     "(1, 0, 2)",
+     "448.14",
+     "466.26",
+     "True"
+    ],
+    [
+     "(2, 0, 1)",
+     "448.19",
+     "466.31",
+     "True"
+    ],
+    [
+     "(2, 0, 2)",
+     "450.11",
+     "471.86",
+     "True"
+    ],
+    [
+     "(1, 0, 3)",
+     "450.12",
+     "471.86",
+     "True"
+    ],
+    [
+     "(3, 0, 1)",
+     "450.13",
+     "471.87",
+     "True"
+    ],
+    [
+     "(3, 0, 0)",
+     "450.25",
+     "468.37",
+     "True"
+    ],
+    [
+     "(2, 0, 0)",
+     "451.62",
+     "466.12",
+     "True"
+    ],
+    [
+     "(3, 0, 2)",
+     "452.11",
+     "477.48",
+     "True"
+    ],
+    [
+     "(2, 0, 3)",
+     "452.12",
+     "477.49",
+     "True"
+    ]
+   ],
+   "widths": null,
+   "small": true,
+   "highlight": [
+    0
+   ]
+  },
+  {
+   "t": "tcaption",
+   "text": "Table A5. Ridge standardised coefficients (final model, ln-volatility scale)"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Feature",
+    "Coefficient",
+    "Description"
+   ],
+   "rows": [
+    [
+     "lv_1",
+     "0.1250",
+     "log Parkinson volatility on day t-1"
+    ],
+    [
+     "log_trades_0",
+     "0.1249",
+     "log of number of trades on day t"
+    ],
+    [
+     "absret_0",
+     "0.1002",
+     "absolute adjusted return on day t (size of last price move, %)"
+    ],
+    [
+     "lv_0",
+     "0.0958",
+     "log Parkinson volatility on day t (most recent day)"
+    ],
+    [
+     "log_volume_0",
+     "-0.0780",
+     "log of shares traded on day t (activity / liquidity)"
+    ],
+    [
+     "days_to_next",
+     "0.0706",
+     "calendar days until the next trading day (known from the CSE holiday calendar)"
+    ],
+    [
+     "abn_volume",
+     "0.0693",
+     "log(volume_t / 22-day average volume): unusual activity"
+    ],
+    [
+     "lv_2",
+     "0.0635",
+     "log Parkinson volatility on day t-2"
+    ],
+    [
+     "ret_0",
+     "-0.0603",
+     "signed adjusted return on day t (captures the 'leverage effect')"
+    ],
+    [
+     "ret_m",
+     "-0.0405",
+     "cumulative adjusted return over the last 22 days (momentum / trend, %)"
+    ],
+    [
+     "absret_w",
+     "-0.0377",
+     "average absolute adjusted return over the last 5 days (%)"
+    ],
+    [
+     "lv_w",
+     "-0.0316",
+     "log of the 5-day average Parkinson volatility (HAR 'weekly' term)"
+    ],
+    [
+     "monday_next",
+     "-0.0133",
+     "1 if the forecast day is a Monday"
+    ],
+    [
+     "lv_m",
+     "0.0044",
+     "log of the 22-day average Parkinson volatility (HAR 'monthly' term)"
+    ]
+   ],
+   "widths": [
+    1.3,
+    1,
+    4.5
+   ],
+   "small": true,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "Coefficients of correlated lag features should not be interpreted individually; the negative coefficient on log volume next to a positive coefficient on the number of trades, for example, means that *many small trades* (rather than a few large block trades) signal higher next-day volatility."
+  },
+  {
+   "t": "h1",
+   "text": "Appendix B. Implementation and reproducibility"
+  },
+  {
+   "t": "bullets",
+   "items": [
+    "Code: `src/` modules (data_processing, feature_engineering, exploratory_analysis, modelling, evaluation, diagnostics, additional_analysis, pipeline) and `main.py`, which regenerates every table and figure.",
+    "Notebook: `notebooks/financial_time_series_analysis.ipynb` runs the same functions step by step with explanations; it was executed end to end without errors.",
+    "Outputs: 16 figures (PNG, 200 dpi), 30 CSV tables plus `all_tables.xlsx`, aligned predictions with dates (`outputs/predictions/`), and `summary.json` with the selected models.",
+    "Leakage test (`check_leakage.py`): all data from 15 September 2025 onward were deliberately corrupted; every feature and every ARIMA and GARCH forecast before that date stayed identical. (The arch package initialises the first GARCH variance with a whole-sample statistic; this affects only the first days of January 2024 and is exactly zero on every validation and test date.)",
+    "Determinism: Random Forest and Gradient Boosting use random_state = 42; all other steps are deterministic.",
+    "Software: Python 3.13, pandas, NumPy, SciPy, statsmodels 0.15, arch 8.0, scikit-learn 1.9, matplotlib, seaborn."
+   ]
+  },
+  {
+   "t": "h1",
+   "text": "Appendix C. Group presentation preparation"
+  },
+  {
+   "t": "h2",
+   "text": "C.1 Talking points (one per slide)"
+  },
+  {
+   "t": "numbers",
+   "items": [
+    "**Problem:** forecasting tomorrow's risk of COMB shares, used for VaR, margins and position limits on the CSE.",
+    "**Why volatility:** prices are non-stationary and returns are mostly noise; ln range-volatility is stationary and strongly autocorrelated.",
+    "**Data:** 478 trading days, 2024\u20132025; three securities in one file; open price unusable in 2025; dividends and a rights issue corrected.",
+    "**Target:** Parkinson high\u2013low volatility, forecast one day ahead from the close of the previous day.",
+    "**Split:** train Feb 2024\u2013Feb 2025 (254), validation Mar\u2013Jul 2025 (99), test Aug\u2013Dec 2025 (102); test used once.",
+    "**Models and why:** naive and 22-day mean (benchmarks); ARIMA(1,0,1) on ln-vol (stationary, ARMA-like ACF); GARCH(1,1)-t (classic clustering model, fat tails); Ridge (correlated features, small data); Random Forest and Gradient Boosting (non-linearity).",
+    "**Headline result:** Ridge best on validation and test (test QLIKE 1.658); every model 31\u201347% better than the 22-day mean; differences among models not significant.",
+    "**Additional investigation:** regimes \u2013 advantage over baselines holds in calm and turbulent periods; biggest miss = shock in a calm period (1 Dec 2025).",
+    "**Interpretation:** signal is linear and short-memory; trees overfit; the range-based measure beats close-to-close GARCH.",
+    "**Limitations:** short sample, one stock, one extreme unverified day, no market-wide features."
+   ],
+   "ref": "num4"
+  },
+  {
+   "t": "h2",
+   "text": "C.2 Likely lecturer questions and evidence-based answers"
+  },
+  {
+   "t": "p",
+   "text": "**Q: Why did you not forecast the share price or return?**  Log prices have a unit root (ADF p = 0.946), so price forecasts are dominated by the random walk; return magnitudes are close to unpredictable. Ln-volatility is stationary and has Ljung\u2013Box Q(10) p < 0.001, so it is a well-posed forecasting target with a clear risk-management use."
+  },
+  {
+   "t": "p",
+   "text": "**Q: Why the Parkinson estimator?**  It uses the full intraday range, is far more efficient than a squared return, is unaffected by dividends/rights, and needs only high/low \u2013 the open price is unusable in 2025."
+  },
+  {
+   "t": "p",
+   "text": "**Q: How do you know there is no data leakage?**  Every feature is shifted one day; rolling windows end at day t; scaler inside a Pipeline fitted on training rows; ARIMA order, regime threshold and stationarity tests use training data; hyper-parameters chosen on validation; the test period was used once after everything was fixed."
+  },
+  {
+   "t": "p",
+   "text": "**Q: Why is test QLIKE so much higher than validation?**  One day (1 Dec 2025, actual 11.2%) dominates. Without it, test QLIKE is 0.50\u20130.55 for the fitted models, similar to validation."
+  },
+  {
+   "t": "p",
+   "text": "**Q: Isn't excluding the outlier cheating?**  We did not exclude it from the main results; we report both. The sensitivity analysis shows the ranking is fragile, which is a finding in itself."
+  },
+  {
+   "t": "p",
+   "text": "**Q: Why does Ridge beat Random Forest if RF is more powerful?**  RF fitted training data about twice as well as it forecast (train QLIKE 0.36 vs validation 0.68): overfitting with ~250 observations. The relationships are mostly linear."
+  },
+  {
+   "t": "p",
+   "text": "**Q: Why did GARCH do relatively poorly on validation?**  Squared daily returns showed no significant ARCH effects (ARCH-LM p = 0.36), so GARCH's dynamics were estimated imprecisely (\u03b2 p \u2248 0.07, persistence 0.73). It uses a noisier volatility proxy than the other models."
+  },
+  {
+   "t": "p",
+   "text": "**Q: Is the best model significantly better?**  No. Diebold\u2013Mariano tests against Ridge give p > 0.2 for every other model, including the baselines, because one extreme day inflates the variance of the loss differences. We distinguish best observed performance from evidence of better generalisation."
+  },
+  {
+   "t": "p",
+   "text": "**Q: Can this make money?**  Not directly. These are risk forecasts, not direction forecasts; accuracy in QLIKE does not imply a profitable strategy."
+  },
+  {
+   "t": "p",
+   "text": "**Q: What would you do with more time?**  Longer history and several banks, rolling-origin evaluation, market-wide predictors (ASPI volatility, USD/LKR), and verified OHLC data to use better range estimators."
+  },
+  {
+   "t": "h2",
+   "text": "C.3 Suggested division of work (with deliberate overlap)"
+  },
+  {
+   "t": "tcaption",
+   "text": "Table C1. Roles"
+  },
+  {
+   "t": "table",
+   "header": [
+    "Member",
+    "Lead responsibility",
+    "Must also understand / review"
+   ],
+   "rows": [
+    [
+     "Member 1",
+     "Data inspection, cleaning, corporate actions, EDA and statistical tests (Sections 3\u20134)",
+     "Feature engineering; why the target was chosen"
+    ],
+    [
+     "Member 2",
+     "Baselines, ARIMA and GARCH models and their diagnostics (Sections 5.2\u20135.4, 6.4)",
+     "Evaluation metrics; DM tests"
+    ],
+    [
+     "Member 3",
+     "Feature engineering, ML models, tuning, permutation importance, regime analysis (5.5\u20135.6, 6.5\u20136.7)",
+     "Leakage prevention; ARIMA results"
+    ],
+    [
+     "Member 4",
+     "Evaluation framework, comparison tables, robustness check, report integration and slides (6.1\u20136.3, 6.8, 7\u20139)",
+     "Every model's selection rationale"
+    ]
+   ],
+   "widths": [
+    1,
+    3.5,
+    2.5
+   ],
+   "small": false,
+   "highlight": []
+  },
+  {
+   "t": "p",
+   "text": "Every member should be able to explain the research question, the chronological split, the baseline logic and the headline result without notes, and should run `python main.py` once on their own computer."
+  }
+ ]
+}

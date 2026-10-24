@@ -1,0 +1,8 @@
+model,QLIKE improvement vs 22-day mean (%),RMSE improvement vs 22-day mean (%),QLIKE improvement vs naive (%)
+Naive (sigma_t),-46.3044,-25.3063,0
+Historical mean (22-day),0,0,31.6494
+"ARIMA(1, 0, 1) on ln-vol",38.309,4.96159,57.8338
+"GARCH(1,1)-t",46.3139,4.72737,63.3052
+Ridge regression,47.1837,4.53281,63.8997
+Random forest,30.9361,4.5465,52.7944
+Gradient boosting,39.7265,4.45664,58.8027

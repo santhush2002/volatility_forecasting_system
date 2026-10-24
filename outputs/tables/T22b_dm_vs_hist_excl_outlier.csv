@@ -1,0 +1,7 @@
+model,DM stat (QLIKE),p (QLIKE),DM stat (squared error),p (squared error)
+Naive (sigma_t),0.969055,0.334856,0.981457,0.328736
+"ARIMA(1, 0, 1) on ln-vol",-2.25361,0.0264039,-2.13237,0.0354249
+"GARCH(1,1)-t",-1.72296,0.087986,-1.20734,0.230151
+Ridge regression,-1.97335,0.0512159,-1.12252,0.264328
+Random forest,-2.18008,0.0315978,-1.79823,0.0751577
+Gradient boosting,-2.14574,0.0343137,-1.38106,0.170338

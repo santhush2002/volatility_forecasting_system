@@ -1,0 +1,7 @@
+model,DM stat (QLIKE),p (QLIKE),DM stat (squared error),p (squared error)
+Naive (sigma_t),1.18218,0.239908,1.16733,0.245827
+Historical mean (22-day),1.21237,0.228199,1.50889,0.13445
+"ARIMA(1, 0, 1) on ln-vol",0.956093,0.341308,-0.350238,0.72689
+"GARCH(1,1)-t",1.05096,0.295786,-0.185179,0.85346
+Random forest,0.978513,0.330159,-0.00928403,0.992611
+Gradient boosting,0.972153,0.333297,0.063151,0.949771

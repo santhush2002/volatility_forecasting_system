@@ -1,0 +1,9 @@
+test,series,statistic,p-value,reject H0 at 5%?
+Ljung-Box Q(5),adjusted return,24.7665,0.000154565,yes
+Ljung-Box Q(10),adjusted return,30.1089,0.000822204,yes
+Ljung-Box Q(5),squared return,9.13642,0.103745,no
+Ljung-Box Q(10),squared return,11.0374,0.354608,no
+Ljung-Box Q(5),log Parkinson vol,102.889,1.29973e-20,yes
+Ljung-Box Q(10),log Parkinson vol,130.632,3.47168e-23,yes
+ARCH-LM (5 lags),adjusted return,5.44441,0.36408,no
+Jarque-Bera,adjusted return,202.003,1.3663e-44,yes

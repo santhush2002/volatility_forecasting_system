@@ -1,0 +1,40 @@
+{
+  "arima_order": [
+    1,
+    0,
+    1
+  ],
+  "arima_name": "ARIMA(1, 0, 1) on ln-vol",
+  "garch_name": "GARCH(1,1)-t",
+  "ml_best_params": {
+    "Ridge regression": {
+      "alpha": 0.01
+    },
+    "Random forest": {
+      "max_depth": 6,
+      "min_samples_leaf": 5,
+      "max_features": 0.33
+    },
+    "Gradient boosting": {
+      "learning_rate": 0.05,
+      "n_estimators": 100,
+      "max_depth": 2
+    }
+  },
+  "best_val_model": "Ridge regression",
+  "best_test_model": "Ridge regression",
+  "weekday_kruskal": {
+    "H": 1.2027248590504076,
+    "p": 0.8776497840256365
+  },
+  "regime_threshold_vol_pct": 1.2278595846118694,
+  "garch_calibration_test": {
+    "calib_a": -0.3880872246063922,
+    "calib_b": 0.9627972276529718,
+    "smear": 1.1684120488837746
+  },
+  "X_best_val": "Ridge regression",
+  "X_best_test": "Random forest",
+  "X_arima": "ARIMA(1, 0, 1) on ln-vol",
+  "X_garch": "GARCH(1,1)-t"
+}

@@ -1,0 +1,5 @@
+variable,n,mean,std,min,median,max,skewness,excess kurtosis
+Close price (Rs.),478,136.287,39.1356,79.8,136.375,216.75,0.476132,-0.991317
+Adjusted daily log return (%),477,0.186686,1.59199,-8.97288,0,8.97799,-0.0536531,6.56478
+Parkinson daily volatility (%),478,1.21085,0.936188,0.140154,0.937585,11.2432,3.85326,29.6155
+Share volume (No.),478,936696,2.02887e+06,4764,440246,2.90808e+07,9.65248,119.761

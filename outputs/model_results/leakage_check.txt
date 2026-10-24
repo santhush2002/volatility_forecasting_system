@@ -1,0 +1,6 @@
+1. Features before cut unchanged:       True
+2. ARIMA forecasts before cut unchanged: True
+3. GARCH(1,1)-t: max change on validation/test dates before cut = 0.00e+00 (initialisation effect on first Jan-2024 days = 1.6e-02)
+3. GJR-GARCH(1,1)-t: max change on validation/test dates before cut = 0.00e+00 (initialisation effect on first Jan-2024 days = 1.7e-02)
+3. EGARCH(1,1)-t: max change on validation/test dates before cut = 0.00e+00 (initialisation effect on first Jan-2024 days = 2.4e-02)
+4. ML models use only the features checked in (1) and are fitted on rows up to 2025-07-31

@@ -1,0 +1,15 @@
+event,days,model,mean actual,mean forecast,QLIKE,RMSE
+US tariff shock (2-11 Apr 2025),8,Naive (sigma_t),3.15518,3.32101,0.943658,1.90272
+US tariff shock (2-11 Apr 2025),8,Historical mean (22-day),3.15518,1.66051,3.0786,2.3023
+US tariff shock (2-11 Apr 2025),8,"ARIMA(1, 0, 1) on ln-vol",3.15518,2.10979,1.55764,1.99191
+US tariff shock (2-11 Apr 2025),8,"GARCH(1,1)-t",3.15518,3.03585,1.24434,2.17996
+US tariff shock (2-11 Apr 2025),8,Ridge regression,3.15518,2.9676,0.995299,1.95707
+US tariff shock (2-11 Apr 2025),8,Random forest,3.15518,2.19133,1.05942,1.8528
+US tariff shock (2-11 Apr 2025),8,Gradient boosting,3.15518,2.40925,0.829174,1.67888
+Post-Cyclone Ditwah (1-5 Dec 2025),4,Naive (sigma_t),4.26394,3.85428,93.3239,7.04155
+Post-Cyclone Ditwah (1-5 Dec 2025),4,Historical mean (22-day),4.26394,1.12784,60.7669,5.30345
+Post-Cyclone Ditwah (1-5 Dec 2025),4,"ARIMA(1, 0, 1) on ln-vol",4.26394,1.76388,36.7442,5.18126
+Post-Cyclone Ditwah (1-5 Dec 2025),4,"GARCH(1,1)-t",4.26394,1.47242,29.2698,5.12838
+Post-Cyclone Ditwah (1-5 Dec 2025),4,Ridge regression,4.26394,2.17022,29.3945,5.14377
+Post-Cyclone Ditwah (1-5 Dec 2025),4,Random forest,4.26394,1.49295,42.6284,5.209
+Post-Cyclone Ditwah (1-5 Dec 2025),4,Gradient boosting,4.26394,1.63679,35.4059,5.16872

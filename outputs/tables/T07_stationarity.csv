@@ -1,0 +1,4 @@
+series,ADF stat,ADF p,KPSS stat,KPSS p,conclusion (5%)
+log close price,-0.134341,0.945909,1.5084,0.01,non-stationary (both tests agree)
+adjusted log return,-13.1148,1.60766e-24,0.16514,0.1,stationary (both tests agree)
+log Parkinson volatility,-6.22315,5.16466e-08,0.217227,0.1,stationary (both tests agree)

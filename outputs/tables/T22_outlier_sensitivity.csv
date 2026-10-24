@@ -1,0 +1,8 @@
+model,test QLIKE (all),test QLIKE (excl. 1 Dec),test RMSE (all),test RMSE (excl. 1 Dec),rank (all),rank (excl. 1 Dec)
+Naive (sigma_t),4.59395,0.972882,1.51158,1.08695,7,7
+Historical mean (22-day),3.13999,0.781942,1.20631,0.609886,6,6
+"ARIMA(1, 0, 1) on ln-vol",1.9371,0.504307,1.14645,0.519783,4,1
+"GARCH(1,1)-t",1.68574,0.548205,1.14928,0.546245,2,5
+Ridge regression,1.65843,0.515057,1.15163,0.550783,1,4
+Random forest,2.1686,0.505094,1.15146,0.518465,5,2
+Gradient boosting,1.89259,0.51147,1.15254,0.536313,3,3

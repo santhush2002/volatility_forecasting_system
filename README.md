@@ -1,196 +1,72 @@
-# volatility_forecasting_system
-A python based financial time series analysis project focused on analyzing financial data, identifying trends, and applying statistical models to understand market behavior. The system explores time series forecasting and volatility analysis using financial data to support data-driven insights and financial decision making.
+# Forecasting next-day volatility of Commercial Bank of Ceylon (COMB.N0000)
+### CM3023 Group Assignment – Real-World Financial Time Series Analytics
 
-# Financial Time Series Analysis and Volatility Forecasting
+**Research question:** How accurately can the next trading day's volatility of COMB voting shares be forecast by
+traditional time-series models (ARIMA on log-volatility, GARCH) compared with machine-learning models (Ridge,
+Random Forest, Gradient Boosting), relative to simple baselines, one day ahead on an untouched test period
+(Aug–Dec 2025)? Do the differences persist across calm and turbulent regimes?
 
-## Overview
-
-This project focuses on forecasting the next trading day's volatility of **Commercial Bank of Ceylon PLC (COMB.N0000)** using financial time series analysis, statistical modelling, and machine learning techniques.
-
-The project compares traditional forecasting models with machine learning approaches to evaluate their predictive performance. It also investigates market volatility, temporal patterns, model reliability, and performance across different market conditions using historical stock market data from the Colombo Stock Exchange (CSE).
-
-## Objectives
-
-- Analyze historical stock market data and identify trends and patterns.
-- Examine stationarity, autocorrelation, and volatility characteristics.
-- Develop and compare statistical and machine learning forecasting models.
-- Evaluate model performance using appropriate forecasting metrics.
-- Investigate model robustness across calm and turbulent market conditions.
-- Generate visualizations, prediction outputs, and a final analytical report.
-
-## Technologies Used
-
-- **Python** – Core programming language
-- **Pandas & NumPy** – Data processing and numerical analysis
-- **Matplotlib & Seaborn** – Data visualization
-- **Statsmodels** – Statistical analysis and ARIMA modelling
-- **ARCH** – GARCH volatility modelling
-- **Scikit-learn** – Machine learning and model evaluation
-- **Jupyter Notebook** – Interactive analysis and documentation
-
-## Forecasting Models
-
-The project evaluates the following approaches:
-
-**Baseline Models**
-- Naive volatility forecast
-- 22-day historical mean
-
-**Traditional Time Series Models**
-- ARIMA – Forecasting log-transformed volatility
-- GARCH – Modelling conditional volatility
-
-**Machine Learning Models**
-- Ridge Regression
-- Random Forest Regressor
-- Gradient Boosting Regressor
-
-## Methodology
-
-1. **Data Preparation:** Load and inspect historical stock data, handle data quality issues, and account for relevant corporate actions.
-2. **Exploratory Data Analysis:** Examine price movements, returns, volatility distributions, correlations, and statistical properties.
-3. **Feature Engineering:** Construct historical volatility, return-based, and other time-dependent features while avoiding future-data leakage.
-4. **Model Development:** Train statistical and machine learning models using historical observations.
-5. **Chronological Data Splitting:** Use separate training, validation, and test periods to support reliable model selection and evaluation.
-6. **Model Evaluation:** Compare forecasts using metrics such as QLIKE, RMSE, MAE, and other relevant statistical tests.
-7. **Robustness Analysis:** Examine forecast performance across different market regimes and assess the influence of unusual market events.
-
-## Dataset
-
-The project uses historical stock market data for Commercial Bank of Ceylon PLC, covering the period from January 2024 to December 2025.
-
-- **Primary security:** COMB.N0000 (voting shares)
-- **Robustness analysis:** COMB.X0000 (non-voting shares)
-- **Forecast target:** Next-day Parkinson range-based volatility
-- **Training period:** Through February 2025
-- **Validation period:** March–July 2025
-- **Testing period:** August–December 2025
-
-The final test period contains 102 observations. The dataset also includes information on corporate actions, which are considered during data preparation.
-
-## Evaluation and Findings
-
-The models are compared using out-of-sample forecasting performance, with particular emphasis on QLIKE, where lower values indicate better performance.
-
-The analysis found that:
-
-- Ridge Regression achieved the lowest QLIKE among the evaluated models on the main test set.
-- All five advanced forecasting models outperformed the two baseline methods.
-- Differences between the advanced models were not statistically significant according to the Diebold–Mariano tests.
-- Extreme market movements had a substantial impact on forecasting errors.
-- Recent volatility and short-term market information were important for forecasting performance.
-
-These findings highlight the importance of appropriate volatility measurement, careful model evaluation, and robustness testing. The forecasts are intended for risk analysis rather than as evidence of a profitable trading strategy.
-
-## Project Structure
-
-```text
+## Folder structure
+```
 financial_time_series_project/
-├── data/
-│   ├── original/              # Original dataset
-│   └── processed/             # Cleaned datasets
-├── notebooks/
-│   └── financial_time_series_analysis.ipynb
+├── data/original/COMB_Stock_Data_2024_2025.xlsx   raw file, never modified
+├── data/processed/COMB_N_clean.csv, COMB_X_clean.csv
+├── notebooks/financial_time_series_analysis.ipynb  executed, step-by-step with explanations
 ├── src/
-│   ├── config.py              # Project configuration
-│   ├── data_processing.py     # Data cleaning and preparation
-│   ├── feature_engineering.py # Feature creation and data splitting
-│   ├── exploratory_analysis.py# Exploratory analysis
-│   ├── modelling.py           # Forecasting models
-│   ├── evaluation.py          # Model evaluation
-│   ├── diagnostics.py         # Diagnostics and comparisons
-│   ├── additional_analysis.py # Robustness and regime analysis
-│   └── pipeline.py            # Main analysis pipeline
-├── outputs/
-│   ├── figures/               # Generated visualizations
-│   ├── tables/                # Results and comparison tables
-│   ├── predictions/           # Forecast outputs
-│   └── model_results/         # Model summaries and logs
-├── report/
-│   ├── final_report.pdf
-│   ├── final_report.docx
-│   └── findings_summary.md
-├── main.py                    # Runs the full analysis
-├── check_leakage.py           # Checks for future-data leakage
-├── build_notebook.py          # Builds the analysis notebook
-├── requirements.txt           # Python dependencies
-└── README.md
+│   ├── config.py                paths, split dates, corporate actions
+│   ├── data_processing.py       loading, quality checks, cleaning, adjusted returns, target
+│   ├── feature_engineering.py   leakage-free features + chronological split
+│   ├── exploratory_analysis.py  EDA figures, descriptive stats, ADF/KPSS/Ljung-Box/ARCH tests
+│   ├── modelling.py             baselines, ARIMA, GARCH family, Ridge/RF/GBM
+│   ├── evaluation.py            QLIKE, RMSE, MAE, MZ-R², Diebold-Mariano
+│   ├── diagnostics.py           comparison tables, residual tests, forecast plots
+│   ├── additional_analysis.py   regimes, rolling stability, shocks, importance
+│   └── pipeline.py              runs the full model workflow for one share class
+├── main.py                      regenerates every table/figure/prediction
+├── check_leakage.py             automated look-ahead test
+├── build_notebook.py            (re)creates the notebook
+├── outputs/figures/             16 PNG figures (200 dpi)
+├── outputs/tables/              30 CSV tables + all_tables.xlsx
+├── outputs/predictions/         dated actual vs predicted values (all sets, and test only)
+├── outputs/model_results/       summary.json, run log, leakage check
+└── report/final_report.docx, final_report.pdf, findings_summary.md
 ```
 
-## Installation and Setup
-
-**Prerequisites:** Python 3.10 or later and Git.
-
-1. Clone the repository:
-
-   ```bash
-   git clone <YOUR_GITHUB_REPOSITORY_URL>
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd financial_time_series_project
-   ```
-
-3. Create a virtual environment:
-
-   ```bash
-   python -m venv .venv
-   ```
-
-4. Activate the environment.
-
-   **Windows:**
-   ```bash
-   .venv\Scripts\activate
-   ```
-
-   **macOS/Linux:**
-   ```bash
-   source .venv/bin/activate
-   ```
-
-5. Install the required dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Running the Project
-
-Run the complete analysis pipeline:
-
+## Installation (Windows, VS Code or Jupyter)
 ```bash
-python main.py
+# 1. Python 3.10+ recommended. In a terminal opened in this folder:
+python -m venv .venv
+.venv\Scripts\activate          # macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-Run the automated leakage check:
-
+## Running
 ```bash
-python check_leakage.py
+python main.py              # ~2 minutes; rewrites everything in outputs/
+python check_leakage.py     # optional: proves forecasts don't use future data
+jupyter notebook notebooks/financial_time_series_analysis.ipynb   # Kernel > Restart & Run All
 ```
+To rebuild the report after changing results: `cd report && python build_report.py && node render_docx.js report_content.json final_report.docx`
+(needs Node.js with `npm install docx`), then export to PDF from Word or LibreOffice.
 
-Open the Jupyter Notebook for the step-by-step analysis:
+## Key design decisions
+* The Excel file contains **three securities** (N voting, X non-voting, R rights). N is analysed; X is a robustness check; R is excluded.
+* The **OPEN column equals CLOSE on every 2025 day**; it is never used.
+* Returns are **adjusted** for the FY2023 and FY2024 dividends and the July 2024 1-for-5 rights issue.
+* **Target:** Parkinson range volatility σ = 100·|ln(H/L)|/√(4 ln 2), forecast one day ahead.
+* **Split (target dates):** train 2024-02-07 → 2025-02-28 (254), validation 2025-03-03 → 2025-07-31 (99), test 2025-08-01 → 2025-12-31 (102).
+* Model choice uses training (ARIMA AIC) and validation (QLIKE) only; final models re-fitted on train+validation and evaluated on test once.
 
-```bash
-jupyter notebook notebooks/financial_time_series_analysis.ipynb
-```
+## Headline results (test period, QLIKE – lower is better)
+| Model | Test QLIKE | excl. 1 Dec 2025 |
+|---|---|---|
+| Ridge regression | 1.658 | 0.515 |
+| GARCH(1,1)-t | 1.686 | 0.548 |
+| Gradient boosting | 1.893 | 0.512 |
+| ARIMA(1,0,1) on ln-vol | 1.937 | 0.504 |
+| Random forest | 2.169 | 0.505 |
+| 22-day historical mean (baseline) | 3.140 | 0.782 |
+| Naive σ_t (baseline) | 4.594 | 0.973 |
 
-The pipeline generates analysis tables, figures, model predictions, and evaluation results in the `outputs/` directory.
-
-## Limitations
-
-- The analysis is based on a limited historical period and a specific listed company.
-- Unexpected market shocks can substantially affect forecast accuracy.
-- Model performance may change under different market conditions.
-- Forecasting volatility does not guarantee accurate price predictions or profitable trading decisions.
-
-## Disclaimer
-
-This project is developed for academic and analytical purposes. The results are not financial advice or investment recommendations.
-
-## Author
-
-Developed as part of the **CM3023 Group Assignment – Real-World Financial Time Series Analytics**.
-
+All models beat both baselines; differences among the five models are not statistically significant (Diebold–Mariano).
+See `report/final_report.pdf` for the full analysis.

@@ -1,0 +1,4 @@
+set,first target date,last target date,observations,share,used for
+Training,2024-02-07,2025-02-28,254,55.8%,estimating parameters
+Validation,2025-03-03,2025-07-31,99,21.8%,choosing orders / hyper-parameters
+Test,2025-08-01,2025-12-31,102,22.4%,"final, untouched comparison"

@@ -1,0 +1,43 @@
+model,feature,mean QLIKE increase,std,description
+Ridge regression,lv_0,0.0333047,0.0151648,log Parkinson volatility on day t (most recent day)
+Ridge regression,lv_1,0.0433901,0.0191969,log Parkinson volatility on day t-1
+Ridge regression,lv_2,0.0103507,0.0120616,log Parkinson volatility on day t-2
+Ridge regression,lv_w,0.00566771,0.0048768,log of the 5-day average Parkinson volatility (HAR 'weekly' term)
+Ridge regression,lv_m,-0.000797017,0.000742306,log of the 22-day average Parkinson volatility (HAR 'monthly' term)
+Ridge regression,absret_0,0.0194541,0.0123353,"absolute adjusted return on day t (size of last price move, %)"
+Ridge regression,absret_w,0.000906265,0.00452127,average absolute adjusted return over the last 5 days (%)
+Ridge regression,ret_0,0.00785327,0.00947693,signed adjusted return on day t (captures the 'leverage effect')
+Ridge regression,ret_m,-0.00230084,0.00449416,"cumulative adjusted return over the last 22 days (momentum / trend, %)"
+Ridge regression,log_volume_0,-0.000282511,0.00984202,log of shares traded on day t (activity / liquidity)
+Ridge regression,abn_volume,0.0220783,0.0106288,log(volume_t / 22-day average volume): unusual activity
+Ridge regression,log_trades_0,0.0289252,0.0134351,log of number of trades on day t
+Ridge regression,days_to_next,0.00507527,0.00691815,calendar days until the next trading day (known from the CSE holiday calendar)
+Ridge regression,monday_next,0.000491333,0.00201613,1 if the forecast day is a Monday
+Random forest,lv_0,0.0110126,0.0170293,log Parkinson volatility on day t (most recent day)
+Random forest,lv_1,0.00701362,0.0241755,log Parkinson volatility on day t-1
+Random forest,lv_2,-0.00034139,0.00311799,log Parkinson volatility on day t-2
+Random forest,lv_w,0.000458438,0.00902911,log of the 5-day average Parkinson volatility (HAR 'weekly' term)
+Random forest,lv_m,-0.00201212,0.00302764,log of the 22-day average Parkinson volatility (HAR 'monthly' term)
+Random forest,absret_0,0.0172455,0.0084797,"absolute adjusted return on day t (size of last price move, %)"
+Random forest,absret_w,-0.00362878,0.00613693,average absolute adjusted return over the last 5 days (%)
+Random forest,ret_0,0.00831223,0.0041126,signed adjusted return on day t (captures the 'leverage effect')
+Random forest,ret_m,-0.00581376,0.00504582,"cumulative adjusted return over the last 22 days (momentum / trend, %)"
+Random forest,log_volume_0,2.24755e-05,0.00261461,log of shares traded on day t (activity / liquidity)
+Random forest,abn_volume,0.000496709,0.00238273,log(volume_t / 22-day average volume): unusual activity
+Random forest,log_trades_0,0.0131823,0.00730479,log of number of trades on day t
+Random forest,days_to_next,0.00247237,0.0026084,calendar days until the next trading day (known from the CSE holiday calendar)
+Random forest,monday_next,0.00207765,0.000739569,1 if the forecast day is a Monday
+Gradient boosting,lv_0,0.0300036,0.0160674,log Parkinson volatility on day t (most recent day)
+Gradient boosting,lv_1,0.023197,0.0250686,log Parkinson volatility on day t-1
+Gradient boosting,lv_2,0.000129636,0.00538105,log Parkinson volatility on day t-2
+Gradient boosting,lv_w,-0.00100035,0.012403,log of the 5-day average Parkinson volatility (HAR 'weekly' term)
+Gradient boosting,lv_m,-0.00200963,0.00368546,log of the 22-day average Parkinson volatility (HAR 'monthly' term)
+Gradient boosting,absret_0,0.00687561,0.0095559,"absolute adjusted return on day t (size of last price move, %)"
+Gradient boosting,absret_w,-0.0102503,0.00512697,average absolute adjusted return over the last 5 days (%)
+Gradient boosting,ret_0,0.0128104,0.00943531,signed adjusted return on day t (captures the 'leverage effect')
+Gradient boosting,ret_m,-0.00196072,0.00736801,"cumulative adjusted return over the last 22 days (momentum / trend, %)"
+Gradient boosting,log_volume_0,-0.00496294,0.00608216,log of shares traded on day t (activity / liquidity)
+Gradient boosting,abn_volume,0.00672059,0.00659541,log(volume_t / 22-day average volume): unusual activity
+Gradient boosting,log_trades_0,0.0124407,0.00585971,log of number of trades on day t
+Gradient boosting,days_to_next,-0.00188044,0.00307683,calendar days until the next trading day (known from the CSE holiday calendar)
+Gradient boosting,monday_next,0,0,1 if the forecast day is a Monday
